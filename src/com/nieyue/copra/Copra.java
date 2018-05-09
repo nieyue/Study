@@ -36,7 +36,7 @@ public class Copra {
      starttime=System.currentTimeMillis();
     // System.out.println("k2".replace("r", "").replace("k", ""));
     //1-1.初始化节点数据 （ 邻接表）
-  /* adjacencyList=new int[][] {
+  adjacencyList=new int[][] {
     		{1,2},
     		{1,3},
     		{1,4},
@@ -51,9 +51,9 @@ public class Copra {
     		{6,8},
     		{7,8},
     		{7,9}
-    		};*/
+    		};
     //从文件中读取数据
-     adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
+     //adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
@@ -289,11 +289,52 @@ public class Copra {
     	//循环去除自身
     	for (int i = 0; i < tempadjacencyList.size(); i++) {
     		for (int j = 0; j < tempadjacencyList.get(i).length; j++) {
-    			if(tempadjacencyList.get(i)[j]!=vertex){
+    			if(tempadjacencyList.get(i)[j]!=vertex&& !list.contains(tempadjacencyList.get(i)[j])){
     				list.add(tempadjacencyList.get(i)[j]);
     			}
     		}
 		}
+    	return list;
+    }
+    /**
+     *根据多个顶点获取包含自身的多个邻接点
+     *@param keyVertex 需要去掉的自身点
+     *@param vertexs所有需要查找的顶点
+     */
+    public static List<Integer> getAdjacencyVertexsByVertexs(Integer keyVertex,List<Integer> vertexs) {
+    	List<Integer> list=new ArrayList<>();
+    	List<int[]> tempadjacencyList=new ArrayList<int[]>();
+    	for (int i = 0; i < adjacencyList.length; i++) {
+    		ArrayList<Integer> a=new ArrayList<Integer>();
+    		for (int j = 0; j < adjacencyList[i].length; j++) {
+    			for (int j2 = 0; j2 < vertexs.size(); j2++) {
+    			if( adjacencyList[i][j]==vertexs.get(j2)){//如果相等，就是对应的边
+    				a.add(adjacencyList[i][j]);
+    			}
+    			}
+    		}
+    		if(a.size()>0){    			
+    			tempadjacencyList.add(adjacencyList[i]);
+    		}
+    	}
+    	//循环去除自身
+    	for (int i = 0; i < tempadjacencyList.size(); i++) {
+    		for (int j = 0; j < tempadjacencyList.get(i).length; j++) {
+    			for (int j2 = 0; j2 < vertexs.size(); j2++) {
+	    			if(tempadjacencyList.get(i)[j]!=vertexs.get(j2)
+	    					&& !list.contains(tempadjacencyList.get(i)[j])){
+	    				list.add(tempadjacencyList.get(i)[j]);
+	    			}
+    			}
+    		}
+		}
+    	/*System.out.println("-----------------");
+    	vertexs.forEach(System.out::print);
+    	System.out.println("");
+    	list.forEach(System.err::print);
+    	System.out.println("");
+    	System.out.println(keyVertex);
+    	System.out.println("-----------------");*/
     	return list;
     }
     /**
@@ -554,33 +595,6 @@ public class Copra {
     public static void discoveryCommunity(Map<Integer,Integer> tempVertexTag){
     	//临时的
     	int tempVertexIsOverSize=vertexIsOver.size();
-    	/*    Iterator<Entry<Integer, Integer>> iterator = tempVertexTag.entrySet().iterator();    
-        while (iterator.hasNext()) {        
-             Entry<Integer, Integer> entry = iterator.next();
-           //获取当前节点的所有邻接点
-     		List<Integer> avl = getAdjacencyVertexByVertexs(entry.getKey());
-     		//从所有邻接点中选出最大的影响值,默认自身的影响值最大
-     		Double maxInfluence=tagInfluence.get(entry.getValue());
-     		Integer maxValue=entry.getValue();
-     		int noupdatenumber=0;//默认0，表示不需要递归
-     		for (int i = 0; i < avl.size(); i++) {
-     			if(entry.getValue()!=vertexTag.get(avl.get(i))){
-     				noupdatenumber=1;//需要递归
-     			}
- 				if(tagInfluence.get(avl.get(i))>maxInfluence){
- 					maxInfluence=tagInfluence.get(avl.get(i));
- 					maxValue=vertexTag.get(avl.get(i));//缓存更新标签
- 				}
- 			}
-     		//最后更新标签，
-     		entry.setValue(maxValue);
-     		 //
-     		if(noupdatenumber==0){
-     			//System.err.println("noupdatenumber"+noupdatenumber+"avl.size"+avl.size()+"---"+tempVertexTag.size());
-     			//tempVertexTag.remove(entry.getKey());
-     			//iterator.remove();
-     		}
-	      } */
    	//遍历vertexTag每个图与剩余节点对应 标签 集合
     for (Map.Entry<Integer, Integer> entry : tempVertexTag.entrySet()) {
     		//获取当前节点的所有邻接点
@@ -588,19 +602,30 @@ public class Copra {
     		//从所有邻接点中选出最大的影响值,默认自身的影响值最大
     		Double maxInfluence=tagInfluence.get(entry.getValue());
     		Integer maxValue=entry.getValue();
-    		int noupdatenumber=0;//默认0，表示每个与邻接点标签相同的次数
+    		int noupdatenumber=1;//默认1，表示当前节点标签与邻接点标签相等
+    		List<Integer> aavl = getAdjacencyVertexsByVertexs(entry.getKey(),avl);//获取多个顶点的包含自身的多个邻接点
     		for (int i = 0; i < avl.size(); i++) {
+    			//只要有一个不相等，就得继续遍历
     			if(entry.getValue()!=vertexTag.get(avl.get(i))){
-    				noupdatenumber=1;
+    				noupdatenumber=0;
     			}
-				if(tagInfluence.get(avl.get(i))>maxInfluence){
+    			boolean isequals=false;//默认false，表示当前邻接点与邻接点的邻接点不相等
+    			//获取当前邻接点的所有邻接点
+        		for (int j = 0; j < aavl.size(); j++) {
+        			if(avl.get(i).equals(aavl.get(j))) {
+        				//System.err.println(avl.get(i)+"---"+aavl.get(j));
+        				isequals=true;
+        				break;
+        			}
+        		}
+				if(isequals && tagInfluence.get(avl.get(i))>maxInfluence){
 					maxInfluence=tagInfluence.get(avl.get(i));
 					maxValue=vertexTag.get(avl.get(i));//缓存更新标签
 				}
 			}
     		//最后更新标签，
     		entry.setValue(maxValue);
-    		if(noupdatenumber==0){
+    		if(noupdatenumber==1){
     			//tempVertexTag.remove(entry.getKey());
     			vertexIsOver.put(entry.getKey(), true);
     		}
