@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 
@@ -25,7 +26,7 @@ public class Copra {
 	public static Set<Integer> kVertex=new HashSet<Integer>();//完全子图所有节点
 	public static int[][] adjacencyList;//邻接表
 	public static int[][] adjacencyMatrix;//邻接矩阵
-	public static HashMap<Integer,Integer> vertexTag=new HashMap<>();//每个图与剩余节点对应 标签 集合
+	public static HashMap<Integer,List<Integer>> vertexTag=new HashMap<>();//每个图与剩余节点对应 标签 集合
 	public static HashMap<Integer,Boolean> vertexIsOver=new HashMap<>();//顶点稳定
 	public static HashMap<Integer,Double> tagInfluence=new HashMap<>();//每个标签的影响值
 	public static Map<Integer,List<Integer>> group=new HashMap<>();//社区
@@ -50,10 +51,14 @@ public class Copra {
     		{6,7},
     		{6,8},
     		{7,8},
-    		{7,9}
+    		{7,9},
+    		{9,10},
+    		{10,11},
+    		{11,12},
+    		{12,10},
     		};
     //从文件中读取数据
-     //adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
+     adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
@@ -88,7 +93,7 @@ public class Copra {
     //5-1，计算每个标签的影响值
     //System.out.println( getTagInfluence(2));
 	for (Map.Entry<Integer, Double> entry : tagInfluence.entrySet()) {
-		System.out.println("标签"+entry.getKey()+"的影响值："+entry.getValue());
+		System.out.println(vertexTag.get(entry.getKey())+"标签"+entry.getKey()+"的影响值："+entry.getValue());
 	}
 	//6-1，发现社区
 	discoveryCommunity(vertexTag);
@@ -488,7 +493,7 @@ public class Copra {
     	return remainderVertex;
     }
     /**
-     *为每个Clique和剩余节点分配一个唯一的标签 ，这里我是把每个完全子图的所有节点标签设置一样。
+     *为每个Clique和剩余节点分配一个唯一的标签 
      *@param orderkarray 完全子图
      *@param remainderVertex 剩余节点
      */
@@ -497,13 +502,17 @@ public class Copra {
     	//key 为图或者节点 ，value为标签
     	for (int i = 1; i <= orderkarray.length; i++) {
     		for (int j = 1; j <= orderkarray[i-1].length; j++) {
-    		vertexTag.put((i-1)*orderkarray[i-1].length+j,(i-1)*orderkarray[i-1].length+j);
+    		List<Integer> list=new ArrayList<>();
+    		list.add((i-1)*orderkarray[i-1].length+j);
+    		vertexTag.put((i-1)*orderkarray[i-1].length+j,list);
     		//设置标签影响值
     		tagInfluence.put((i-1)*orderkarray[i-1].length+j,getTagInfluence(i));
     		}
 		}
     	for (int i = orderkarray.length*orderkarray[0].length+1; i <= remainderVertex.length+orderkarray.length*orderkarray[0].length; i++) {
-    		vertexTag.put(i,i);
+    		List<Integer> list=new ArrayList<>();
+    		list.add(i);
+    		vertexTag.put(i,list);
     		//设置标签影响值
     		tagInfluence.put(i,getTagInfluence(i));
     	}
@@ -573,14 +582,16 @@ public class Copra {
     	//所有标签l的顶点
     	List<Integer> vertexIdList=new ArrayList<>();
     	//所有的顶点对应的标签遍历
-    	for (Map.Entry<Integer, Integer> entry : vertexTag.entrySet()) {
+    	for (Map.Entry<Integer, List<Integer>> entry : vertexTag.entrySet()) {
     		//entry.getKey(), entry.getValue();
-    		if(entry.getValue().equals(l)){
-    			 cl++;//标签l的总个数
-    			 Integer id = entry.getKey();
-    			 vertexIdList.add(id);
-    			 wl+=getVertexByEdgeWeigth(id);//获取标签l的顶点总权重
-    		}
+    		for (int i = 0; i < entry.getValue().size(); i++) {
+    			if(entry.getValue().get(i).equals(l)){
+    				cl++;//标签l的总个数
+    				Integer id = entry.getKey();
+    				vertexIdList.add(id);
+    				wl+=getVertexByEdgeWeigth(id);//获取标签l的顶点总权重
+    			}				
+			}
 		}
     	dl=getEdgeByVertexs(vertexIdList);
     	Double ml=Math.pow(Math.E,-dl);
@@ -592,47 +603,128 @@ public class Copra {
      * 发现社区
      * 
      */
-    public static void discoveryCommunity(Map<Integer,Integer> tempVertexTag){
+    public static void discoveryCommunity(Map<Integer,List<Integer>> tempVertexTag){
     	//临时的
     	int tempVertexIsOverSize=vertexIsOver.size();
    	//遍历vertexTag每个图与剩余节点对应 标签 集合
-    for (Map.Entry<Integer, Integer> entry : tempVertexTag.entrySet()) {
+    for (Map.Entry<Integer, List<Integer>> entry : tempVertexTag.entrySet()) {
+    		//List<Integer> vertexList=new ArrayList<>();
+    		Set<Integer> vertexSet=new HashSet<>();
     		//获取当前节点的所有邻接点
     		List<Integer> avl = getAdjacencyVertexByVertexs(entry.getKey());
+    		//获取多个顶点的不包含自身的多个邻接点
+    		List<Integer> aavl = getAdjacencyVertexsByVertexs(entry.getKey(),avl);
     		//从所有邻接点中选出最大的影响值,默认自身的影响值最大
-    		Double maxInfluence=tagInfluence.get(entry.getValue());
-    		Integer maxValue=entry.getValue();
+    		Double maxInfluence=tagInfluence.get(entry.getValue().get(0));
+    		//最大的标签
+    		Integer maxValue=entry.getValue().get(0);
+    		//找到自身节点最大的影响值和标签
+    		for (int i = 0; i < entry.getValue().size(); i++) {
+    			if(tagInfluence.get(entry.getValue().get(i))>=maxInfluence){
+					maxInfluence=tagInfluence.get(entry.getValue().get(i));
+					maxValue=entry.getValue().get(i);//缓存更新标签
+				}
+			}
     		int noupdatenumber=1;//默认1，表示当前节点标签与邻接点标签相等
-    		List<Integer> aavl = getAdjacencyVertexsByVertexs(entry.getKey(),avl);//获取多个顶点的包含自身的多个邻接点
+    		int isequals=0;//默认0，表示当前邻接点与邻接点的邻接点不相等,1代表相同社区，2++代表完全子图
+    		
+    		//当前节点的所有邻接点的所有标签的影响值 分组，
+			Map<Integer,Double> currentVertexTagInfluences=new HashMap<>();
+			//遍历所有邻接点
+			for (int i = 0; i < avl.size(); i++) {
+				
+				//遍历所有邻接点的所有标签，
+				for (int j = 0; j < vertexTag.get(avl.get(i)).size(); j++) {
+					if(currentVertexTagInfluences.get(vertexTag.get(avl.get(i)).get(j))==null){
+						//第一次存
+						currentVertexTagInfluences.put(vertexTag.get(avl.get(i)).get(j), tagInfluence.get(vertexTag.get(avl.get(i)).get(j)));
+						//currentVertexTagInfluences.put(vertexTag.get(avl.get(i)).get(j), 1.0);
+					}else{
+						currentVertexTagInfluences.put(vertexTag.get(avl.get(i)).get(j), currentVertexTagInfluences.get(vertexTag.get(avl.get(i)).get(j))+tagInfluence.get(vertexTag.get(avl.get(i)).get(j)));
+						//currentVertexTagInfluences.put(vertexTag.get(avl.get(i)).get(j), currentVertexTagInfluences.get(vertexTag.get(avl.get(i)).get(j))+1);
+						
+					}
+				}
+			}
+			//排序，默认最大的key为第一个
+			Integer maxctif=vertexTag.get(avl.get(0)).get(0);
+			for (Entry<Integer, Double> cvti : currentVertexTagInfluences.entrySet()) {
+				if(cvti.getValue()>currentVertexTagInfluences.get(vertexTag.get(avl.get(0)).get(0))){
+					maxctif=cvti.getKey();
+				}
+			}
+			//avl.stream().forEach(System.err::print);
+			//System.out.println(currentVertexTagInfluences);
+			//遍历所有邻接点
     		for (int i = 0; i < avl.size(); i++) {
-    			//只要有一个不相等，就得继续遍历
-    			if(entry.getValue()!=vertexTag.get(avl.get(i))){
+    			List<Integer> aaavl= getAdjacencyVertexByVertexs(avl.get(i));
+    			//获取当前邻接点的所有邻接点
+    			for (int j = 0; j < aaavl.size(); j++) {
+    				for (int z = 0; z< avl.size(); z++) {
+	    				if(avl.get(z).equals(aaavl.get(j))) {
+	    					++isequals;
+	    					//大于等于1,不需再运算
+	    					if(isequals>=1){
+	    						break;        					
+	    					}
+	    				}
+    				}
+    			}
+    			//如果当前标签集合不包含邻接点的标签集合，需要遍历
+    			if(!entry.getValue().containsAll(vertexTag.get(avl.get(i)))){
     				noupdatenumber=0;
     			}
-    			boolean isequals=false;//默认false，表示当前邻接点与邻接点的邻接点不相等
-    			//获取当前邻接点的所有邻接点
-        		for (int j = 0; j < aavl.size(); j++) {
-        			if(avl.get(i).equals(aavl.get(j))) {
-        				//System.err.println(avl.get(i)+"---"+aavl.get(j));
-        				isequals=true;
-        				break;
-        			}
-        		}
-				if(isequals && tagInfluence.get(avl.get(i))>maxInfluence){
-					maxInfluence=tagInfluence.get(avl.get(i));
-					maxValue=vertexTag.get(avl.get(i));//缓存更新标签
+    			
+    			//遍历当前节点的邻接点的所有标签，
+    			for (int j = 0; j < vertexTag.get(avl.get(i)).size(); j++) {
+    				//0，不相等返回自身的
+    				if(isequals==0){
+    					//vertexSet=new HashSet<>();
+    					vertexSet.addAll(entry.getValue());
+    					//vertexList=entry.getValue();    					
+    				}
+    				//
+    				if( vertexTag.get(avl.get(i)).get(j)==maxctif
+    						//&& currentVertexTagInfluences.get(vertexTag.get(avl.get(i)).get(j))>maxInfluence
+    						){
+    					//if(isequals>=2 && tagInfluence.get(vertexTag.get(avl.get(i)).get(j))>=maxInfluence){
+    					maxInfluence=tagInfluence.get(vertexTag.get(avl.get(i)).get(j));
+    					maxValue=vertexTag.get(avl.get(i)).get(j);//缓存更新标签
+    					//entry.getValue().clear();
+    					//vertexList=new ArrayList<>();
+    					//vertexList.add(maxValue);
+    					vertexSet=new HashSet<>();
+    					vertexSet.add(maxValue);
+    					//System.err.println(maxValue);
+    				}
+    				//1代表相同社区，增加标签
+    				if(isequals==1){
+    					maxInfluence=tagInfluence.get(vertexTag.get(avl.get(i)).get(j));
+    					//maxValue=vertexTag.get(avl.get(i)).get(j);//增加标签
+    					if(!vertexSet.contains(vertexTag.get(avl.get(i)).get(j))){
+    						//vertexList=entry.getValue();
+    						//vertexList.add(vertexTag.get(avl.get(i)).get(j));
+    						//entry.getValue().add(vertexTag.get(avl.get(i)).get(j));
+    						//System.err.println(vertexTag.get(avl.get(i)).get(j));
+    						vertexSet=new HashSet<>();
+    						vertexSet.addAll(entry.getValue());
+    						vertexSet.add(vertexTag.get(avl.get(i)).get(j));
+    					}
+    				}
+    				
 				}
 			}
     		//最后更新标签，
-    		entry.setValue(maxValue);
-    		if(noupdatenumber==1){
+    		entry.setValue(new ArrayList<Integer>(vertexSet));
+    		if(noupdatenumber>=1){
     			//tempVertexTag.remove(entry.getKey());
     			vertexIsOver.put(entry.getKey(), true);
     		}
 		}
     	iteratorNumber++;//迭代次数增加
     	//非空迭代
-    	if(tempVertexIsOverSize==vertexIsOver.size()){
+    	//if(iteratorNumber<=2){
+    		if(tempVertexIsOverSize!=vertexIsOver.size()||tempVertexIsOverSize==0){
     		//System.err.println(tempVertexTag.size());
     		discoveryCommunity(tempVertexTag);    		
     		//System.out.println(iteratorNumber);
@@ -645,23 +737,30 @@ public class Copra {
     		}
     		System.out.println("");
     		System.out.println("迭代后的标签：");
-    		for (Map.Entry<Integer, Integer> entry : vertexTag.entrySet()) {
+    		for (Map.Entry<Integer, List<Integer>> entry : vertexTag.entrySet()) {
         		//entry.getKey(), entry.getValue();
-    			System.out.print(entry.getValue()+" ");
-        		//System.out.println("key="+entry.getKey()+"---tag="+entry.getValue());
+    			for (int j = 0; j < entry.getValue().size(); j++) {
+    				System.out.print(entry.getValue().get(j)+" ");
+    				//System.out.println("key="+entry.getKey()+"---tag="+entry.getValue());					
+				}
     		}
     		group=new HashMap<>();
     		Set<Integer> set=new HashSet<>();
     		//找到所有的迭代后存留的标签
-    		for (Map.Entry<Integer, Integer> entry : vertexTag.entrySet()) {
-    			set.add(entry.getValue());
+    		for (Map.Entry<Integer, List<Integer>> entry : vertexTag.entrySet()) {
+    			for (int j = 0; j < entry.getValue().size(); j++) {
+    				set.add(entry.getValue().get(j));
+    				//System.out.println("key="+entry.getKey()+"---tag="+entry.getValue());					
+				}
     		}
     		//根据迭代后存留的标签获取每一个节点
     		for (Integer s:set) {
     			List<Integer> ll=new ArrayList<>();
-    			for (Map.Entry<Integer, Integer> entry : vertexTag.entrySet()) {
-    				if(s==entry.getValue()){
-    					ll.add(entry.getKey());
+    			for (Map.Entry<Integer, List<Integer>> entry : vertexTag.entrySet()) {
+    				for (int j = 0; j < entry.getValue().size(); j++) {
+	    				if(s==entry.getValue().get(j)){
+	    					ll.add(entry.getKey());
+	    				}
     				}
     			}
     			group.put(s, ll);
@@ -691,23 +790,39 @@ public class Copra {
 		//m表示总边数
 		int m=adjacencyList.length;
 		for (Map.Entry<Integer, List<Integer>> el : group.entrySet()) {
-			int listsize = el.getValue().size();
-			for (int i = 0; i < listsize-1; i++) {
+			List<Integer> ell = el.getValue();
+			Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
+			for (int i = 0; i < ell.size(); i++) {
+				if(tempqv.get(ell.get(i))==null){
+					tempqv.put(ell.get(i), 1);					
+				}else{
+					tempqv.put(ell.get(i),tempqv.get(ell.get(i))+1);					
+				}
 				//表示节点v所属社区的数目
-				double Qv = Double.valueOf(listsize);
+				double Qv = Double.valueOf(tempqv.get(ell.get(i)));
 				//节点v的度
-				double Kv = Double.valueOf(getEdgeByVertex(el.getValue().get(i)));
+				double Kv = Double.valueOf(getEdgeByVertex(ell.get(i)));
 				//表示节点w所属社区的数目
 				double Qw = 0;
 				//节点w的度
 				double Kw = 0;
 				//A为邻接矩阵
 				double Avw= 0;
-				
-				for(int j=i+1;j<listsize;j++){
-					Qw = Double.valueOf(listsize);
+				Map<Integer,Integer> tempqw=new HashMap<Integer,Integer>();
+				for(int j=0;j<ell.size();j++){
+					if(tempqw.get(ell.get(j))==null){
+						tempqw.put(ell.get(j), 1);					
+					}else{
+						tempqw.put(ell.get(j),tempqw.get(ell.get(j))+1);					
+					}
+					Qw = Double.valueOf(tempqw.get(ell.get(j)));
 					Kw = Double.valueOf(getEdgeByVertex(el.getValue().get(j)));
-					Avw=2.0;
+					//如果u与v存在一条连边
+					if(getAdjacencyVertexByVertexs(ell.get(i)).contains(ell.get(j))){
+						Avw=1.0;
+					}else{
+						Avw=0;						
+					}
 					//Avw=1.0;
 					EQ_temp = EQ_temp+(Avw-(Kv*Kw)/(Double.valueOf(2*m)))/(Qv*Qw);
 				}
