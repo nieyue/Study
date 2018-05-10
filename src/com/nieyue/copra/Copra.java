@@ -58,7 +58,10 @@ public class Copra {
     		{12,10},
     		};
     //从文件中读取数据
-    // adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
+    adjacencyList=getFileData("src/com/nieyue/copra/Karate2.txt");
+    //adjacencyList=getFileData("src/com/nieyue/copra/Dolphins.txt");
+    //adjacencyList=getFileData("src/com/nieyue/copra/polBooks.txt");
+    //adjacencyList=getFileData("src/com/nieyue/copra/Football.txt");
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
@@ -66,25 +69,11 @@ public class Copra {
     // System.err.println(getEdgeByVertex(9));
    //2-1，获取完全子图的邻接表组合
     ArrayList<ArrayList<Integer>> kList=complie(adjacencyVertex);
-    //2-1，获取完全子图
+    //2-2，获取完全子图
     int[][] karray = getK(kList);
-    System.out.println(k+"派系节点不重复的完全子图：");
-    for (int i = 0; i < karray.length; i++) {
-    	System.out.print("k派系完全子图,第"+(i+1)+"个： ");
-    	for (int j = 0; j < karray[i].length; j++) {
-    		System.out.print(" "+karray[i][j]);
-    	}
-    	System.out.println("");
-	}
+  
     //3，排序后的完全子图 ,降序
     int[][] orderkarray = sort(karray);
-    for (int i = 0; i < orderkarray.length; i++) {
-    	System.out.print("排序后的k派系完全子图,第"+(i+1)+"个： ");
-    	for (int j = 0; j < orderkarray[i].length; j++) {
-    		System.out.print(" "+orderkarray[i][j]);
-    	}
-    	System.out.println("");
-	}
     
     //4-1，获取剩余节点
     int[] remainderVertex = getRemainderVertex(adjacencyList,orderkarray);
@@ -164,16 +153,27 @@ public class Copra {
      */
     public static int[][] getK(ArrayList<ArrayList<Integer>> klist){
     	if(klist.size()<=0||klist.get(0).size()<3){
-    		endtime=System.currentTimeMillis();
-    		long costtime=endtime-starttime;
-    	    System.err.println("花费的时间："+Double.valueOf(costtime)/1000+"s");
-    		throw new RuntimeException("没有k派系");
+    		//endtime=System.currentTimeMillis();
+    		//long costtime=endtime-starttime;
+    	   // System.err.println("花费的时间："+Double.valueOf(costtime)/1000+"s");
+    		//throw new RuntimeException("没有k派系");
+    		System.err.println("没有k派系,单个节点传播");
+    		return new int[][] {};
     	}
     	int[][] karray=new int[klist.size()][klist.get(0).size()];
     	 for (int i = 0; i < klist.size(); i++) {
     	    	for (int j = 0; j < klist.get(i).size(); j++) {
     	    			karray[i][j]=klist.get(i).get(j);
     	    	}
+    		}
+    	 
+    	  System.out.println(k+"派系节点不重复的完全子图：");
+    	    for (int i = 0; i < karray.length; i++) {
+    	    	System.out.print("k派系完全子图,第"+(i+1)+"个： ");
+    	    	for (int j = 0; j < karray[i].length; j++) {
+    	    		System.out.print(" "+karray[i][j]);
+    	    	}
+    	    	System.out.println("");
     		}
     	return karray;
     }
@@ -186,12 +186,28 @@ public class Copra {
     	if(adjacencyList.length<k){
     		throw new RuntimeException("邻接表长度不够");
     	}
+    	//判断节点是否从0开始，如果是转化为1开始
+    	boolean isfromzero=false;
+    	for (int i = 0; i < adjacencyList.length; i++) {
+    		for (int j = 0; j < adjacencyList[i].length; j++) {
+    			if(adjacencyList[i][j]==0) {
+    				isfromzero=true;
+    			}
+    		}
+    	}
+    	if(isfromzero) {
+    		for (int i = 0; i < adjacencyList.length; i++) {
+        		for (int j = 0; j < adjacencyList[i].length; j++) {
+        			adjacencyList[i][j]+=1;
+        		}
+        	}
+    	}
     	//获取所有顶点
     	for (int i = 0; i < adjacencyList.length; i++) {
-			for (int j = 0; j < adjacencyList[i].length; j++) {
-				adjacencyVertex.add(adjacencyList[i][j]);
-			}
-		}
+    		for (int j = 0; j < adjacencyList[i].length; j++) {
+    			adjacencyVertex.add(adjacencyList[i][j]);
+    		}
+    	}
     	//顶点个数初始化
     	vertexNumber=adjacencyVertex.size();
     	
@@ -435,6 +451,9 @@ public class Copra {
      *@param karray完全子图
      */
     public static int[][] sort(int[][] karray) {
+    	if(karray.length<=0) {
+    		return new int[][] {};
+    	}
     	//排序数组； 行为完全子图下表；列为综合度数
     	int[][] temp=new int[karray.length][1];
     	//每个图的每个顶点的边相加
@@ -466,6 +485,14 @@ public class Copra {
 	    				 
 	    			}
     			}
+    		}
+    		//打印
+    	    for (int i = 0; i < orderkarray.length; i++) {
+    	    	System.out.print("排序后的k派系完全子图,第"+(i+1)+"个： ");
+    	    	for (int j = 0; j < orderkarray[i].length; j++) {
+    	    		System.out.print(" "+orderkarray[i][j]);
+    	    	}
+    	    	System.out.println("");
     		}
     	return orderkarray;
     }
@@ -509,12 +536,22 @@ public class Copra {
     		tagInfluence.put((i-1)*orderkarray[i-1].length+j,getTagInfluence(i));
     		}
 		}
-    	for (int i = orderkarray.length*orderkarray[0].length+1; i <= remainderVertex.length+orderkarray.length*orderkarray[0].length; i++) {
-    		List<Integer> list=new ArrayList<>();
-    		list.add(i);
-    		vertexTag.put(i,list);
-    		//设置标签影响值
-    		tagInfluence.put(i,getTagInfluence(i));
+    	if(orderkarray.length<=0) {
+    		for (int i = 1; i <= remainderVertex.length; i++) {
+    			List<Integer> list=new ArrayList<>();
+    			list.add(i);
+    			vertexTag.put(i,list);
+    			//设置标签影响值
+    			tagInfluence.put(i,getTagInfluence(i));
+    		}
+    	}else {
+			for (int i = orderkarray.length*orderkarray[0].length+1; i <= remainderVertex.length+orderkarray.length*orderkarray[0].length; i++) {
+				List<Integer> list=new ArrayList<>();
+				list.add(i);
+				vertexTag.put(i,list);
+				//设置标签影响值
+				tagInfluence.put(i,getTagInfluence(i));
+			}
     	}
     }
     /**

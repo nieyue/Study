@@ -10,7 +10,7 @@ public class main_clique
 		int member_num  = 0; //网络中点的个数
 		try{
 			String encording="UTF8";
-			File my_input_file  = new File("src/com/nieyue/cpm/Karate.txt");
+			File my_input_file  = new File("src/com/nieyue/cpm/Karate2.txt");
 
 			if(my_input_file.exists() && my_input_file.isFile() ){//file.isFile() && file.exists() 
 				InputStreamReader read_file = new InputStreamReader( new FileInputStream(my_input_file), encording);
@@ -99,7 +99,7 @@ public class main_clique
 						int size_max = vector_s.elementAt(num).size();
 						for(int s = 0; s < size_max; s++){
 							int point = vector_s.elementAt(num).elementAt(s).intValue();
-							
+					 		
 						}
 					}
 				}*/

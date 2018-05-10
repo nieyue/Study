@@ -17,7 +17,12 @@ public class LFM {
 		try {
 			Long start=System.currentTimeMillis();
 			//File file = new File("lfm/Football.txt");
-			File file = new File("src/com/nieyue/lfm/Karate.txt");
+			String basePath="src/com/nieyue/lfm";
+			String path="/Karate.txt";//0.79
+			//String path="/Dolphins.txt";//0.89
+			//String path="/Football.txt";//0.369
+			//String path="/polBooks.txt";//2.14
+			File file = new File(basePath+path);
 			ArrayList<String> vec_relationship  = new ArrayList<String>();//记录有链接的边
 			ArrayList<String> seedlist  = new ArrayList<String>();//记录种子
 			Map map = new HashMap();//存点和对应点的邻居节点
