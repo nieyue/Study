@@ -58,7 +58,7 @@ public class Copra {
     		{12,10},
     		};
     //从文件中读取数据
-     adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
+    // adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
@@ -662,7 +662,7 @@ public class Copra {
     			for (int j = 0; j < aaavl.size(); j++) {
     				for (int z = 0; z< avl.size(); z++) {
 	    				if(avl.get(z).equals(aaavl.get(j))) {
-	    					++isequals;
+	    					isequals++;
 	    					//大于等于1,不需再运算
 	    					if(isequals>=1){
 	    						break;        					
@@ -696,7 +696,7 @@ public class Copra {
     					vertexSet=new HashSet<>();
     					vertexSet.add(maxValue);
     					//System.err.println(maxValue);
-    				}
+    				}else
     				//1代表相同社区，增加标签
     				if(isequals==1){
     					maxInfluence=tagInfluence.get(vertexTag.get(avl.get(i)).get(j));
