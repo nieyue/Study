@@ -15,12 +15,11 @@ import java.util.Set;
 
 
 /**
- * 自定义copra
+ * 改进的copra
  * @author Administrator
  *
  */
 public class Copra {
-	static int k=3;//k派系数
 	static int vertexNumber=0;//顶点数量,默认为0
 	public static Set<Integer> adjacencyVertex=new HashSet<Integer>();//获取所有的顶点
 	public static Set<Integer> kVertex=new HashSet<Integer>();//完全子图所有节点
@@ -58,6 +57,7 @@ public class Copra {
     		{12,10},
     		};
     //从文件中读取数据
+    //adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
     adjacencyList=getFileData("src/com/nieyue/copra/Karate2.txt");
     //adjacencyList=getFileData("src/com/nieyue/copra/Dolphins.txt");
     //adjacencyList=getFileData("src/com/nieyue/copra/polBooks.txt");
@@ -67,24 +67,15 @@ public class Copra {
     //1-3，邻接表转邻接矩阵
     adjacencyListChangeadjacencyMatrix(adjacencyList);
     // System.err.println(getEdgeByVertex(9));
-   //2-1，获取完全子图的邻接表组合
-    ArrayList<ArrayList<Integer>> kList=complie(adjacencyVertex);
-    //2-2，获取完全子图
-    int[][] karray = getK(kList);
-  
-    //3，排序后的完全子图 ,降序
+   //2-1， 获取所有不重复极大完全子图的列表 
+    ArrayList<ArrayList<Integer>> karray=getMaxK(adjacencyVertex);
+    //3-1，排序后的完全子图 ,降序
     int[][] orderkarray = sort(karray);
-    
     //4-1，获取剩余节点
     int[] remainderVertex = getRemainderVertex(adjacencyList,orderkarray);
-    //4-2，为每个Clique和剩余节点分配一个唯一的标签
+    //4-2，获取每一个标签影响值，为每个不重复极大派系和剩余节点分配一个唯一的标签
     assignTag(orderkarray,remainderVertex);
-    //5-1，计算每个标签的影响值
-    //System.out.println( getTagInfluence(2));
-	for (Map.Entry<Integer, Double> entry : tagInfluence.entrySet()) {
-		System.out.println(vertexTag.get(entry.getKey())+"标签"+entry.getKey()+"的影响值："+entry.getValue());
-	}
-	//6-1，发现社区
+	//5-1，迭代发现社区，输出EQ值
 	discoveryCommunity(vertexTag);
     endtime=System.currentTimeMillis();
    long costtime=endtime-starttime;
@@ -146,46 +137,13 @@ public class Copra {
     		throw new RuntimeException("读取文件错误");
     	
     }
-    /**
-     * 根据k派系组合获取k派系
-     *@param klist k派系组合
-     * @return k派系
-     */
-    public static int[][] getK(ArrayList<ArrayList<Integer>> klist){
-    	if(klist.size()<=0||klist.get(0).size()<3){
-    		//endtime=System.currentTimeMillis();
-    		//long costtime=endtime-starttime;
-    	   // System.err.println("花费的时间："+Double.valueOf(costtime)/1000+"s");
-    		//throw new RuntimeException("没有k派系");
-    		System.err.println("没有k派系,单个节点传播");
-    		return new int[][] {};
-    	}
-    	int[][] karray=new int[klist.size()][klist.get(0).size()];
-    	 for (int i = 0; i < klist.size(); i++) {
-    	    	for (int j = 0; j < klist.get(i).size(); j++) {
-    	    			karray[i][j]=klist.get(i).get(j);
-    	    	}
-    		}
-    	 
-    	  System.out.println(k+"派系节点不重复的完全子图：");
-    	    for (int i = 0; i < karray.length; i++) {
-    	    	System.out.print("k派系完全子图,第"+(i+1)+"个： ");
-    	    	for (int j = 0; j < karray[i].length; j++) {
-    	    		System.out.print(" "+karray[i][j]);
-    	    	}
-    	    	System.out.println("");
-    		}
-    	return karray;
-    }
+
 
     /**
      * 获取所有的顶点
      * @param adjacencyList 邻接表
      */
     public static Set<Integer> getAdjacencyVertex(int[][] adjacencyList ){
-    	if(adjacencyList.length<k){
-    		throw new RuntimeException("邻接表长度不够");
-    	}
     	//判断节点是否从0开始，如果是转化为1开始
     	boolean isfromzero=false;
     	for (int i = 0; i < adjacencyList.length; i++) {
@@ -214,65 +172,82 @@ public class Copra {
     	return  adjacencyVertex;
     }
     /**
-     * 获取完全子图的邻接表组合
+     * 获取所有不重复极大完全子图的列表 
      * @param adjacencyVertex 所有顶点
      */
-    public static ArrayList<ArrayList<Integer>> complie(Set<Integer> adjacencyVertex ){
-    	if(adjacencyList.length<k){
-    		throw new RuntimeException("邻接表长度不够");
-    	}
-    	int[] av=new int[adjacencyVertex.size()];
+    public static ArrayList<ArrayList<Integer>> getMaxK(Set<Integer> adjacencyVertex ){
+    	//所有顶点
     	ArrayList<Integer> adv = new ArrayList<Integer>(adjacencyVertex);
-    	for (int i = 0; i < adv.size(); i++) {
-			av[i]=adv.get(i);
-		}
-    	//获取所有的组合
-    	ArrayList<ArrayList<Integer>> tempcomplieAdjacencyList = combination(av,av.length,k,new ArrayList<Integer>());
-    	
-    	//标记已经存在一个k派系中的节点，
-    	ArrayList<Integer> livelist=new ArrayList<>();
-    	//提取k派系的组合 判断规则，n个顶点有n*(n-1)/2条边。如：3个顶点3条边，即只能有3个顶点才是完全子图
+    	//存放最大完全子图
     	ArrayList<ArrayList<Integer>> klist=new ArrayList<>();
-    	loop:for (int j = 0; j < tempcomplieAdjacencyList.size(); j++) {
-    		Set<Integer> set=new HashSet<>();
-    		for (int j2 = 0; j2 < tempcomplieAdjacencyList.get(j).size(); j2++) {
-    				 for (int i = 0; i < livelist.size(); i++) {
-    					 //如果已经存在，跳出
-    					 if(livelist.get(i)==tempcomplieAdjacencyList.get(j).get(j2)){
-    						 continue loop;
-    					 }
-    				 }
-    				 set.add(tempcomplieAdjacencyList.get(j).get(j2));
-    		}
-    		//如果n个顶点有n*(n-1)/2条边，则是k派系，即完全子图
-    		if(set.size()==k && isCompleteSubgraph(new ArrayList<Integer>(set))){
-    			livelist.addAll(tempcomplieAdjacencyList.get(j));
-    			klist.add(tempcomplieAdjacencyList.get(j));
-    			kVertex.addAll(set);
-    		}
-		}
+    	int advwl=adv.size();
+    	for (int i = 0; i < advwl; i++) {
+    		//存放每一个最大完全子图
+    		ArrayList<Integer> list=new ArrayList<>();
+    		int advl=adv.size();
+	    	for (int j = i; j < advl; j++) {
+	    		boolean b=true;//默认都有连接
+	    		//判断当前顶点加入完全图之后是否仍是一个完全图
+	    		if(j==i){
+	    			list.add(adv.get(j));    			
+	    		}
+	    		if(j>=i+1){
+	    			for (int z = 0; z < list.size(); z++) {
+	    				//判断该顶点和团中顶点是否都有连接,只要有一个没连接，则不是
+						if(!twoVertex(adv.get(j),list.get(z))){
+							b=false;
+							break;
+						}
+					}
+	    			if(b){
+	    				list.add(adv.get(j));    			
+	    			}
+	    		}
+			}
+	    	//大于等于3个才是完全子图
+	    	if(list.size()>=3){
+	    		klist.add(list);
+	    		//去掉重复点
+	    		adv.removeAll(list);
+	    	}
+    	}
+    	if(klist.size()<=0||klist.get(0).size()<3){
+    		//endtime=System.currentTimeMillis();
+    		//long costtime=endtime-starttime;
+    	   // System.err.println("花费的时间："+Double.valueOf(costtime)/1000+"s");
+    		//throw new RuntimeException("没有k派系");
+    		System.err.println("没有k派系,单个节点传播");
+    		return klist;
+    	}
+   	  System.out.println("k派系节点不重复的完全子图：");
+   	    for (int i = 0; i < klist.size(); i++) {
+   	    	System.out.print("k派系完全子图,第"+(i+1)+"个： ");
+   	    	for (int j = 0; j < klist.get(i).size(); j++) {
+   	    		System.out.print(" "+klist.get(i).get(j));
+   	    	}
+   	    	System.out.println("");
+   		}
     	return  klist;
     }
-  //组合数，通过返回值返回结果  
-    public static ArrayList<ArrayList<Integer>>  combination(int[] A,int n,int m,ArrayList<Integer> t)  
-    {  
-        ArrayList<ArrayList<Integer>> res=new ArrayList<>();  
-        if(m==0)  
-        {  
-            ArrayList<Integer> temp=new ArrayList<>(t);  
-            res.add(temp);  
-            return res;  
-        }  
-        else  
-        {  
-            for(int i=A.length-n;i<=A.length-m;i++)  
-            {  
-            	t.add(A[i]);  		
-                res.addAll(combination(A,A.length-i-1,m-1,t));  
-                t.remove(t.size()-1);  
-            }  
-            return res;  
-        }  
+  /**
+   * 判断两个顶点是否是边存在邻接表中
+   * @param vertex1
+   * @param vertex2
+   * @return
+   */
+    public static boolean  twoVertex(int vertex1,int vertex2)  
+    {  boolean b=false;
+    	if(vertex1==vertex2){
+    		return b;
+    	}
+    for (int i = 0; i < adjacencyList.length; i++) {
+			if((adjacencyList[i][0]==vertex1&&adjacencyList[i][1]==vertex2)
+				||adjacencyList[i][1]==vertex1&&adjacencyList[i][0]==vertex2){
+				b=true;
+				break;
+			}
+	}
+       return b;
     } 
     /**
      * 邻接表转邻接矩阵 
@@ -409,65 +384,34 @@ public class Copra {
     	}
     	return edge;
     }
-    /**
-     *判断是否完全子图，根据多个顶点获取自身边数 如:V(1,2,4),则获取1和2,1和4,2和4三条边是否都存在
-     *@param vertex 顶点 从1开始
-     */
-    public static boolean isCompleteSubgraph(List<Integer> vertexs) {
-    	boolean isCS=false;//默认
-    	if(vertexs.size()<1){
-    		throw new RuntimeException("数组越界");
-    	}
-    	int[] vts=new int[vertexs.size()];
-    	for (int i = 0; i < vts.length; i++) {
-    		vts[i]=vertexs.get(i);
-    		}
-    	//顶点组合 的所有边
-    	ArrayList<ArrayList<Integer>> combination = combination(vts, vertexs.size(), 2, new ArrayList<Integer>());
-    	List<ArrayList<Integer>> tempadjacencyList=new ArrayList<ArrayList<Integer>>();
-    	for (int i = 0; i < adjacencyList.length; i++) {
-    		ArrayList<Integer> a=new ArrayList<Integer>();
-    		for (int j = 0; j < adjacencyList[i].length; j++) {
-    			a.add(adjacencyList[i][j]);
-    		}
-    		tempadjacencyList.add(a);
-    	}
-    	isCS=tempadjacencyList.containsAll(combination);
-    /*	int tempadjacencyListSize=tempadjacencyList.size();
-    	for (int i = 0; i < tempadjacencyListSize; i++) {
-    		int[] temp=new int[tempadjacencyList.get(i).size()];
-    		for (int j = 0; j < tempadjacencyList.get(i).size(); j++) {
-    			temp[j]=tempadjacencyList.get(i).get(j);
-    		}
-    		for (int j2 = 0; j2 < vertexs.size(); j2++) {
-    		}
-    	}*/
-    	return isCS;
-    }
     
     /**
      *对所发现的完全子图按综合度排序 降序
      *每个图的每个顶点的边相加
      *@param karray完全子图
      */
-    public static int[][] sort(int[][] karray) {
-    	if(karray.length<=0) {
+    public static int[][] sort(ArrayList<ArrayList<Integer>> karray) {
+    	if(karray.size()<=0) {
     		return new int[][] {};
     	}
     	//排序数组； 行为完全子图下表；列为综合度数
-    	int[][] temp=new int[karray.length][1];
+    	int[][] temp=new int[karray.size()][1];
+    	int[][] teampkarray=new int[karray.size()][];
     	//每个图的每个顶点的边相加
-    	for(int i = 0; i < karray.length; i++){
+    	for(int i = 0; i < karray.size(); i++){
     		List<Integer> list=new ArrayList<>();
-    		for (int j = 0; j < karray[i].length; j++) {
-    			list.add(karray[i][j]);
+    		int[] subteampkarray=new int[karray.get(i).size()];
+    		for (int j = 0; j < karray.get(i).size(); j++) {
+    			list.add(karray.get(i).get(j));
+    			subteampkarray[j]=karray.get(i).get(j);
     		}
+    		teampkarray[i]=subteampkarray;
     		temp[i][0]=getEdgeByVertexs(list);
     		System.out.println("k派系完全子图,第"+(i+1)+"个的综合度："+temp[i][0]);
     	}
     	//排序过了的k派系
     	//int[][] orderkarray=new int[karray.length][karray[0].length];
-    	int[][] orderkarray=karray;
+    	int[][] orderkarray=teampkarray;
     	int[] orderkarrayt=orderkarray[0];
     	
     	//根据综合度数排序
@@ -490,6 +434,7 @@ public class Copra {
     	    for (int i = 0; i < orderkarray.length; i++) {
     	    	System.out.print("排序后的k派系完全子图,第"+(i+1)+"个： ");
     	    	for (int j = 0; j < orderkarray[i].length; j++) {
+    	    		kVertex.add(orderkarray[i][j]);
     	    		System.out.print(" "+orderkarray[i][j]);
     	    	}
     	    	System.out.println("");
@@ -505,7 +450,7 @@ public class Copra {
     public static int[] getRemainderVertex(int[][] adjacencyList,int[][] orderkarray) {
     	int[] remainderVertex;
     	//总结点
-    	Set<Integer> settotal=adjacencyVertex;
+    	Set<Integer> settotal=new HashSet<>(adjacencyVertex);;
     	//完全子图节点
     	Set<Integer> setk=kVertex;
     	settotal.removeAll(setk);
@@ -527,13 +472,15 @@ public class Copra {
     public static void assignTag(int[][] orderkarray,int[] remainderVertex) {
     	//把完全子图和剩余节点分配一个唯一标签。
     	//key 为图或者节点 ，value为标签
-    	for (int i = 1; i <= orderkarray.length; i++) {
-    		for (int j = 1; j <= orderkarray[i-1].length; j++) {
+    	int aaa=0;
+    	for (int i = 0; i < orderkarray.length; i++) {
+    		for (int j = 0; j < orderkarray[i].length; j++) {
     		List<Integer> list=new ArrayList<>();
-    		list.add((i-1)*orderkarray[i-1].length+j);
-    		vertexTag.put((i-1)*orderkarray[i-1].length+j,list);
+    		aaa++;
+    		list.add(aaa);
+    		vertexTag.put(aaa,list);
     		//设置标签影响值
-    		tagInfluence.put((i-1)*orderkarray[i-1].length+j,getTagInfluence(i));
+    		tagInfluence.put(aaa,getTagInfluence(aaa));
     		}
 		}
     	if(orderkarray.length<=0) {
@@ -545,13 +492,18 @@ public class Copra {
     			tagInfluence.put(i,getTagInfluence(i));
     		}
     	}else {
-			for (int i = orderkarray.length*orderkarray[0].length+1; i <= remainderVertex.length+orderkarray.length*orderkarray[0].length; i++) {
+			for (int i = kVertex.size()+1; i <= remainderVertex.length+kVertex.size(); i++) {
 				List<Integer> list=new ArrayList<>();
 				list.add(i);
 				vertexTag.put(i,list);
 				//设置标签影响值
 				tagInfluence.put(i,getTagInfluence(i));
 			}
+    	}
+    	//打印每个标签的影响值
+        //System.out.println( getTagInfluence(2));
+    	for (Map.Entry<Integer, Double> entry : tagInfluence.entrySet()) {
+    		System.out.println(vertexTag.get(entry.getKey())+"标签"+entry.getKey()+"的影响值："+entry.getValue());
     	}
     }
     /**
@@ -650,7 +602,7 @@ public class Copra {
     		//获取当前节点的所有邻接点
     		List<Integer> avl = getAdjacencyVertexByVertexs(entry.getKey());
     		//获取多个顶点的不包含自身的多个邻接点
-    		List<Integer> aavl = getAdjacencyVertexsByVertexs(entry.getKey(),avl);
+    		//List<Integer> aavl = getAdjacencyVertexsByVertexs(entry.getKey(),avl);
     		//从所有邻接点中选出最大的影响值,默认自身的影响值最大
     		Double maxInfluence=tagInfluence.get(entry.getValue().get(0));
     		//最大的标签
@@ -669,9 +621,11 @@ public class Copra {
 			Map<Integer,Double> currentVertexTagInfluences=new HashMap<>();
 			//遍历所有邻接点
 			for (int i = 0; i < avl.size(); i++) {
-				
+				Integer avle = avl.get(i);
+				 List<Integer> vtte = vertexTag.get(avle);
+				int vttes=vtte.size();
 				//遍历所有邻接点的所有标签，
-				for (int j = 0; j < vertexTag.get(avl.get(i)).size(); j++) {
+				for (int j = 0; j <vttes ; j++) {
 					if(currentVertexTagInfluences.get(vertexTag.get(avl.get(i)).get(j))==null){
 						//第一次存
 						currentVertexTagInfluences.put(vertexTag.get(avl.get(i)).get(j), tagInfluence.get(vertexTag.get(avl.get(i)).get(j)));
