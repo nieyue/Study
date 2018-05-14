@@ -1,16 +1,32 @@
 package com.nieyue.cpm;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
 public class main_clique 
 {
+	static int vertexNumber=0;//顶点数量,默认为0
+	public static Set<Integer> adjacencyVertex=new HashSet<Integer>();//获取所有的顶点
+	public static List<List<Integer>> adjacencyList;//边
+	
 	public static void main(String args[])throws IOException{
      long start=System.currentTimeMillis();
 		int relation_members[];//下三角 存放关系矩阵
 		int member_num  = 0; //网络中点的个数
 		try{
 			String encording="UTF8";
-			File my_input_file  = new File("src/com/nieyue/cpm/Karate2.txt");
+			File my_input_file  = new File("src/com/nieyue/cpm/Karate.txt");
+			//File my_input_file  = new File("src/com/nieyue/cpm/Dolphins.txt");
+			//File my_input_file  = new File("src/com/nieyue/cpm/polBooks.txt");
+			//File my_input_file  = new File("src/com/nieyue/cpm/Football.txt");
 
 			if(my_input_file.exists() && my_input_file.isFile() ){//file.isFile() && file.exists() 
 				InputStreamReader read_file = new InputStreamReader( new FileInputStream(my_input_file), encording);
@@ -21,29 +37,64 @@ public class main_clique
 				if((text_line = bufferreader.readLine()) == null ){
 					System.out.println("网络中点的个数读取为空");
 				} 
-
-				member_num  = Integer.parseInt(text_line);//先读取网络中点的个数;
-				relation_members = new int[(member_num-1)*member_num/2];//申请空间，下三角，存放关系矩阵，压缩存放
-				
+				adjacencyList=new ArrayList<>();
+				Set<Integer> set=new HashSet<>();
 				while( (text_line=bufferreader.readLine()) != null ){
-					text = text_line.replace(",", "");
+					String[] textlines = text_line.split(" ");
+					List<Integer> li=new ArrayList<>();
+					int point_x  = Integer.parseInt(textlines[0].trim());
+					int point_y = Integer.parseInt(textlines[1].trim());
+					set.add(point_x);
+					set.add(point_y);
+					li.add(point_x);
+					li.add(point_y);
+					adjacencyList.add(li);
+				}
+				bufferreader.close();
+				read_file.close();
+				//member_num  = Integer.parseInt(text_line);//先读取网络中点的个数;
+				member_num  = set.size();//先读取网络中点的个数;
+				relation_members = new int[(member_num-1)*member_num/2];//申请空间，下三角，存放关系矩阵，压缩存放
+				boolean isZero=false;//数据中默认没有0
+				loop:for (int i = 0; i < adjacencyList.size(); i++) {
+				if(adjacencyList.get(i).get(0)==0||adjacencyList.get(i).get(1)==0) {
+					isZero=true;
+					break loop;
+				}	
+				}
+				if(isZero) {
+					for (int i = 0; i < adjacencyList.size(); i++) {
+						int a0=adjacencyList.get(i).get(0)+1;
+						int a1=adjacencyList.get(i).get(1)+1;
+						adjacencyList.get(i).clear();
+						adjacencyList.get(i).add(a0);
+						adjacencyList.get(i).add(a1);
+						}	
+				}
+				for (int i = 0; i < adjacencyList.size(); i++) {
+					int point_x = adjacencyList.get(i).get(0);
+					int point_y = adjacencyList.get(i).get(1);
+					int x=( (point_x > point_y) ? point_x:point_y )-1;
+					int y=( (point_x < point_y) ? point_x:point_y )-1;//x是行值，y是列值.文本中的数据下标是从1开始的，而程序中则是从0开始，注意此点
+					/* 下面是根据行值x和列值y来定位数据在下三角矩阵中的位置*/
+					int position_xy = (x-1)*x/2+y;
+					relation_members[position_xy] = 1;
+				}
+					/*text = text_line.replace(",", "");
 					String[] version = text.split("-");
-
+					//System.err.println(version.length);
 					for(int i = 0; i < version.length; i++ ){
 						String[] version_2 = version[i].split(":");
 						int point_x = Integer.parseInt(version_2[0]);
 						int point_y = Integer.parseInt(version_2[1]);
 						int x=( (point_x > point_y) ? point_x:point_y )-1;
 						int y=( (point_x < point_y) ? point_x:point_y )-1;//x是行值，y是列值.文本中的数据下标是从1开始的，而程序中则是从0开始，注意此点
-						/* 下面是根据行值x和列值y来定位数据在下三角矩阵中的位置*/
+						 下面是根据行值x和列值y来定位数据在下三角矩阵中的位置
 						int position_xy = (x-1)*x/2+y;
 						relation_members[position_xy] = 1;
-					}
+					}*/
 
-
-				}
-				bufferreader.close();
-				read_file.close();
+				
 
 				/* 下面开始进行算法*/
 				clique_child clique_c = new clique_child( relation_members, member_num);
@@ -88,9 +139,9 @@ public class main_clique
 				System.out.println();
 				System.out.println("共有："+vector_k_clique.size()+" 个社团");
 				System.out.println();
-				double EQ=0 ;
-				double EQ_temp=0;
-				int m=0;
+				//double EQ=0 ;
+				//double EQ_temp=0;
+				//int m=0;
 			/*	for(int i=0;i<vector_k_clique.size();i++)
 				{
 					for(int j = 0; j < vector_k_clique.elementAt(i).size(); j++)
@@ -103,6 +154,51 @@ public class main_clique
 						}
 					}
 				}*/
+				//计算EQ
+			/*	double EQ = 0,
+				EQ_temp=0;
+				//m表示总边数
+				int m=adjacencyList.size();
+				for (Map.Entry<Integer, List<Integer>> el : group.entrySet()) {
+					List<Integer> ell = el.getValue();
+					Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
+					for (int i = 0; i < ell.size(); i++) {
+						if(tempqv.get(ell.get(i))==null){
+							tempqv.put(ell.get(i), 1);					
+						}else{
+							tempqv.put(ell.get(i),tempqv.get(ell.get(i))+1);					
+						}
+						//表示节点v所属社区的数目
+						double Qv = Double.valueOf(tempqv.get(ell.get(i)));
+						//节点v的度
+						double Kv = Double.valueOf(getEdgeByVertex(ell.get(i)));
+						//表示节点w所属社区的数目
+						double Qw = 0;
+						//节点w的度
+						double Kw = 0;
+						//A为邻接矩阵
+						double Avw= 0;
+						Map<Integer,Integer> tempqw=new HashMap<Integer,Integer>();
+						for(int j=0;j<ell.size();j++){
+							if(tempqw.get(ell.get(j))==null){
+								tempqw.put(ell.get(j), 1);					
+							}else{
+								tempqw.put(ell.get(j),tempqw.get(ell.get(j))+1);					
+							}
+							Qw = Double.valueOf(tempqw.get(ell.get(j)));
+							Kw = Double.valueOf(getEdgeByVertex(el.getValue().get(j)));
+							//如果u与v存在一条连边
+							if(getAdjacencyVertexByVertexs(ell.get(i)).contains(ell.get(j))){
+								Avw=1.0;
+							}else{
+								Avw=0;						
+							}
+							//Avw=1.0;
+							EQ_temp = EQ_temp+(Avw-(Kv*Kw)/(Double.valueOf(2*m)))/(Qv*Qw);
+						}
+					}
+				}
+				EQ=EQ_temp/(2*m);*/
 				
 			}
 			else{
@@ -114,7 +210,9 @@ public class main_clique
 			e.printStackTrace();
 		}
 		long end=System.currentTimeMillis();
-		System.out.println("算法运行时间为："+(end-start)+"ms");
+		//System.out.println("算法运行时间为："+(end-start)+"ms");
+		 System.err.println("花费的时间："+Double.valueOf(end-start)/1000+"s");
 
 	}
+	
 }

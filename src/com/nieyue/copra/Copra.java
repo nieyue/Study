@@ -58,8 +58,8 @@ public class Copra {
     		};
     //从文件中读取数据
     //adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
-    adjacencyList=getFileData("src/com/nieyue/copra/Karate2.txt");
-    //adjacencyList=getFileData("src/com/nieyue/copra/Dolphins.txt");
+    //adjacencyList=getFileData("src/com/nieyue/copra/Karate2.txt");
+    adjacencyList=getFileData("src/com/nieyue/copra/Dolphins.txt");
     //adjacencyList=getFileData("src/com/nieyue/copra/polBooks.txt");
     //adjacencyList=getFileData("src/com/nieyue/copra/Football.txt");
      //1-2，获取所有顶点等初始化
@@ -146,10 +146,12 @@ public class Copra {
     public static Set<Integer> getAdjacencyVertex(int[][] adjacencyList ){
     	//判断节点是否从0开始，如果是转化为1开始
     	boolean isfromzero=false;
-    	for (int i = 0; i < adjacencyList.length; i++) {
+    	loop:
+    		for (int i = 0; i < adjacencyList.length; i++) {
     		for (int j = 0; j < adjacencyList[i].length; j++) {
     			if(adjacencyList[i][j]==0) {
     				isfromzero=true;
+    				break loop;
     			}
     		}
     	}
