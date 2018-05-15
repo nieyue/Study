@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ public class main_clique
 	static int vertexNumber=0;//顶点数量,默认为0
 	public static Set<Integer> adjacencyVertex=new HashSet<Integer>();//获取所有的顶点
 	public static List<List<Integer>> adjacencyList;//边
+	public static List<List<Integer>> adjacencyMatrix;//邻接矩阵
 	
 	public static void main(String args[])throws IOException{
      long start=System.currentTimeMillis();
@@ -23,10 +25,12 @@ public class main_clique
 		int member_num  = 0; //网络中点的个数
 		try{
 			String encording="UTF8";
-			File my_input_file  = new File("src/com/nieyue/cpm/Karate.txt");
-			//File my_input_file  = new File("src/com/nieyue/cpm/Dolphins.txt");
-			//File my_input_file  = new File("src/com/nieyue/cpm/polBooks.txt");
-			//File my_input_file  = new File("src/com/nieyue/cpm/Football.txt");
+			File my_input_file=null;
+			 my_input_file  = new File("src/com/nieyue/cpm/Karate.txt");
+			 //my_input_file  = new File("src/com/nieyue/cpm/Karate2.txt");
+			// my_input_file  = new File("src/com/nieyue/cpm/Dolphins.txt");
+			// my_input_file  = new File("src/com/nieyue/cpm/polBooks.txt");
+			// my_input_file  = new File("src/com/nieyue/cpm/Football.txt");
 
 			if(my_input_file.exists() && my_input_file.isFile() ){//file.isFile() && file.exists() 
 				InputStreamReader read_file = new InputStreamReader( new FileInputStream(my_input_file), encording);
@@ -71,6 +75,7 @@ public class main_clique
 						adjacencyList.get(i).add(a1);
 						}	
 				}
+				
 				for (int i = 0; i < adjacencyList.size(); i++) {
 					int point_x = adjacencyList.get(i).get(0);
 					int point_y = adjacencyList.get(i).get(1);
@@ -117,8 +122,7 @@ public class main_clique
 				Vector< Vector<Integer> > vector_final_k_clique = c_c_matrx_deal.get_vector_final_k_clique();
 				System.out.println();
 				System.out.printf("%d派系社团情况如下：",k);
-				int ii;
-				for( ii = 0; ii < vector_k_clique.size(); ii++){//定位到某个k派系社团
+				for(int ii = 0; ii < vector_k_clique.size(); ii++){//定位到某个k派系社团
 					int number=0;
 					System.out.printf("\n%d派系社团%d为: ",k,ii);
 					
@@ -155,12 +159,12 @@ public class main_clique
 					}
 				}*/
 				//计算EQ
-			/*	double EQ = 0,
+				double EQ = 0,
 				EQ_temp=0;
 				//m表示总边数
 				int m=adjacencyList.size();
-				for (Map.Entry<Integer, List<Integer>> el : group.entrySet()) {
-					List<Integer> ell = el.getValue();
+				for(int ii = 0; ii < vector_final_k_clique.size(); ii++){//定位到某个k派系社团
+					Vector<Integer> ell = vector_final_k_clique.elementAt(ii);
 					Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
 					for (int i = 0; i < ell.size(); i++) {
 						if(tempqv.get(ell.get(i))==null){
@@ -169,9 +173,11 @@ public class main_clique
 							tempqv.put(ell.get(i),tempqv.get(ell.get(i))+1);					
 						}
 						//表示节点v所属社区的数目
-						double Qv = Double.valueOf(tempqv.get(ell.get(i)));
+						double Qv = Double.valueOf(tempqv.get(ell.get(i)))*3;
 						//节点v的度
-						double Kv = Double.valueOf(getEdgeByVertex(ell.get(i)));
+						ArrayList<Integer> Kvl = new ArrayList<Integer>();
+						Kvl.add(ell.get(i));
+						double Kv = Double.valueOf(getEdgeByVertexs(Kvl));
 						//表示节点w所属社区的数目
 						double Qw = 0;
 						//节点w的度
@@ -186,7 +192,9 @@ public class main_clique
 								tempqw.put(ell.get(j),tempqw.get(ell.get(j))+1);					
 							}
 							Qw = Double.valueOf(tempqw.get(ell.get(j)));
-							Kw = Double.valueOf(getEdgeByVertex(el.getValue().get(j)));
+							ArrayList<Integer> Kwl = new ArrayList<Integer>();
+							Kwl.add(ell.get(j));
+							Kw = Double.valueOf(getEdgeByVertexs(Kwl));
 							//如果u与v存在一条连边
 							if(getAdjacencyVertexByVertexs(ell.get(i)).contains(ell.get(j))){
 								Avw=1.0;
@@ -196,10 +204,10 @@ public class main_clique
 							//Avw=1.0;
 							EQ_temp = EQ_temp+(Avw-(Kv*Kw)/(Double.valueOf(2*m)))/(Qv*Qw);
 						}
-					}
 				}
-				EQ=EQ_temp/(2*m);*/
-				
+				}
+				EQ=EQ_temp/(2*m);
+				System.out.println("EQ值:"+EQ);
 			}
 			else{
 				System.out.println("找不到指定的文件");
@@ -214,5 +222,65 @@ public class main_clique
 		 System.err.println("花费的时间："+Double.valueOf(end-start)/1000+"s");
 
 	}
-	
+		  /**
+	     *根据多个顶点获取所有边数
+	     *@param vertex 顶点 从1开始
+	     */
+	    public static int getEdgeByVertexs(List<Integer> vertexs) {
+	    	int edge=0;
+	    	if(vertexs.size()<1){
+	    		throw new RuntimeException("数组越界");
+	    	}
+	    	List<ArrayList<Integer>> tempadjacencyList=new ArrayList<ArrayList<Integer>>();
+	    	for (int i = 0; i < adjacencyList.size(); i++) {
+	    		ArrayList<Integer> a=new ArrayList<Integer>();
+	    		for (int j = 0; j < adjacencyList.get(i).size(); j++) {
+	    			a.add(adjacencyList.get(i).get(j));
+	    		}
+	    		tempadjacencyList.add(a);
+	    	}
+	    	int tempadjacencyListSize=tempadjacencyList.size();
+	    	loop2:for (int i = 0; i < tempadjacencyListSize; i++) {
+	    		for (int j = 0; j < tempadjacencyList.get(i).size(); j++) {
+	    			for (int j2 = 0; j2 < vertexs.size(); j2++) {
+		    			if( tempadjacencyList.get(i).get(j)==vertexs.get(j2)){//如果相等，就是对应的边
+		    				edge+=1;
+		    				tempadjacencyList.remove(tempadjacencyList.get(i));
+		    				tempadjacencyListSize--;
+		    				i--;
+		    				continue loop2;
+		    			}
+	    			}
+	    		}
+	    	}
+	    	return edge;
+	    }
+	    /**
+	     *根据顶点获取邻接点
+	     *@param vertex 顶点 从1开始
+	     */
+	    public static List<Integer> getAdjacencyVertexByVertexs(int vertex) {
+	    	List<Integer> list=new ArrayList<>();
+	    	List<List<Integer>> tempadjacencyList=new ArrayList<>();
+	    	for (int i = 0; i < adjacencyList.size(); i++) {
+	    		ArrayList<Integer> a=new ArrayList<Integer>();
+	    		for (int j = 0; j < adjacencyList.get(i).size(); j++) {
+	    			if( adjacencyList.get(i).get(j)==vertex){//如果相等，就是对应的边
+	    				a.add(adjacencyList.get(i).get(j));
+	    			}
+	    		}
+	    		if(a.size()>0){    			
+	    		tempadjacencyList.add(adjacencyList.get(i));
+	    		}
+	    	}
+	    	//循环去除自身
+	    	for (int i = 0; i < tempadjacencyList.size(); i++) {
+	    		for (int j = 0; j < tempadjacencyList.get(i).size(); j++) {
+	    			if(tempadjacencyList.get(i).get(j)!=vertex&& !list.contains(tempadjacencyList.get(i).get(j))){
+	    				list.add(tempadjacencyList.get(i).get(j));
+	    			}
+	    		}
+			}
+	    	return list;
+	    }
 }

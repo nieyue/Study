@@ -57,11 +57,11 @@ public class Copra {
     		{12,10},
     		};
     //从文件中读取数据
-    //adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
+    adjacencyList=getFileData("src/com/nieyue/copra/Karate.txt");
     //adjacencyList=getFileData("src/com/nieyue/copra/Karate2.txt");
-    adjacencyList=getFileData("src/com/nieyue/copra/Dolphins.txt");
+    //adjacencyList=getFileData("src/com/nieyue/copra/Dolphins.txt");
     //adjacencyList=getFileData("src/com/nieyue/copra/polBooks.txt");
-    //adjacencyList=getFileData("src/com/nieyue/copra/Football.txt");
+   // adjacencyList=getFileData("src/com/nieyue/copra/Football.txt");
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
