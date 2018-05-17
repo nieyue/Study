@@ -57,7 +57,7 @@ public class BetterCopra {
     		{12,10},
     		};
     //从文件中读取数据
-   // adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");
+   //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");
     //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");
     //adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");
     //adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");
@@ -784,8 +784,8 @@ public class BetterCopra {
 		int m=adjacencyList.length;
 		for (Map.Entry<Integer, List<Integer>> el : group.entrySet()) {
 			List<Integer> ell = el.getValue();
-			Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
 			for (int i = 0; i < ell.size(); i++) {
+				Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
 				if(tempqv.get(ell.get(i))==null){
 					tempqv.put(ell.get(i), 1);					
 				}else{
@@ -801,8 +801,8 @@ public class BetterCopra {
 				double Kw = 0;
 				//A为邻接矩阵
 				double Avw= 0;
-				Map<Integer,Integer> tempqw=new HashMap<Integer,Integer>();
 				for(int j=0;j<ell.size();j++){
+					Map<Integer,Integer> tempqw=new HashMap<Integer,Integer>();
 					if(tempqw.get(ell.get(j))==null){
 						tempqw.put(ell.get(j), 1);					
 					}else{

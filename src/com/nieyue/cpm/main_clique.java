@@ -26,8 +26,8 @@ public class main_clique
 		try{
 			String encording="UTF8";
 			File my_input_file=null;
-			 my_input_file  = new File("src/com/nieyue/cpm/Karate.txt");
-			 //my_input_file  = new File("src/com/nieyue/cpm/Karate2.txt");
+			 //my_input_file  = new File("src/com/nieyue/cpm/Karate.txt");
+			 my_input_file  = new File("src/com/nieyue/cpm/Karate2.txt");
 			// my_input_file  = new File("src/com/nieyue/cpm/Dolphins.txt");
 			// my_input_file  = new File("src/com/nieyue/cpm/polBooks.txt");
 			// my_input_file  = new File("src/com/nieyue/cpm/Football.txt");
@@ -165,8 +165,8 @@ public class main_clique
 				int m=adjacencyList.size();
 				for(int ii = 0; ii < vector_final_k_clique.size(); ii++){//定位到某个k派系社团
 					Vector<Integer> ell = vector_final_k_clique.elementAt(ii);
-					Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
 					for (int i = 0; i < ell.size(); i++) {
+						Map<Integer,Integer> tempqv=new HashMap<Integer,Integer>();
 						if(tempqv.get(ell.get(i))==null){
 							tempqv.put(ell.get(i), 1);					
 						}else{
@@ -184,8 +184,8 @@ public class main_clique
 						double Kw = 0;
 						//A为邻接矩阵
 						double Avw= 0;
-						Map<Integer,Integer> tempqw=new HashMap<Integer,Integer>();
 						for(int j=0;j<ell.size();j++){
+							Map<Integer,Integer> tempqw=new HashMap<Integer,Integer>();
 							if(tempqw.get(ell.get(j))==null){
 								tempqw.put(ell.get(j), 1);					
 							}else{
