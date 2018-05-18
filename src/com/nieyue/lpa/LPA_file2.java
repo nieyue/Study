@@ -12,7 +12,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * 随机的lpa
+ * @author 聂跃
+ * @date 2018年5月18日
+ */
 public class LPA_file2 {
 	static int Vertex = 115; //解决N个节点的LPA算法	
 	static int [][] Adjmartrix=new int[Vertex][Vertex];//图的邻接矩阵形式
@@ -75,7 +79,7 @@ public class LPA_file2 {
 		}
 	}
  	
-	/**********************对重要度进行排序,重要度即为节点的度数*************************/
+	/**********************随机排序*************************/
 	public static void Initing_Degree_Sorting(List<int[]> Edge){//对每个节点进行赋值标签，初始化为下标值
 		int[][] Degree_array_temp=new int[Vertex][2];
 		int max=-1;
@@ -202,7 +206,7 @@ public class LPA_file2 {
 		List<Integer> keyList = new ArrayList<>(Communitys.keySet());
 		for (int i_index=0; i_index<keyList.size();i_index++ ) {
 			iList = Communitys.get(keyList.get(i_index));
-			for (int j_index=0;j_index<keyList.size();j_index++) {
+			for (int j_index=0;j_index<keyList.size()-1;j_index++) {
 				jList = Communitys.get(keyList.get(j_index));
 				for(int i=0;i<iList.size();i++){
 					for(int j=0;j<jList.size();j++){
@@ -232,12 +236,13 @@ public class LPA_file2 {
 		Long start=System.currentTimeMillis();
 		int Iteration=0;
 		/**********************初始化*************************/
-		String filename = "src/com/nieyue/lpa/Karate.txt";Vertex=34;
-		//String filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
-		//String filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
-		//String filename = "src/com/nieyue/lpa/Football.txt";Vertex=115;
+		String filename;
+		filename = "src/com/nieyue/lpa/Karate.txt";Vertex=34;
+		//filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
+		//filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
+		//filename = "src/com/nieyue/lpa/Football.txt";Vertex=115;
 		Init_Graph(filename);
-		Initing_Degree_Sorting(Edge_graph);//对重要度进行排序，亦是随机序列
+		Initing_Degree_Sorting(Edge_graph);//随机排序
 		
 		
 		/*****************对每一个节点，返回所有邻居中某标签数最多的标签值*****************/

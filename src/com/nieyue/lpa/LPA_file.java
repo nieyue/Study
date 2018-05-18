@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LPA_file {
-	static int Vertex = 105; //解决N个节点的LPA算法	
+	static int Vertex = 1111; //解决N个节点的LPA算法	
 	static int [][] Adjmartrix=new int[Vertex][Vertex];//图的邻接矩阵形式
 	static List<int[]> Edge_graph = null;//图中所有的边
 	static int[] Lable_t=new int[Vertex];//存放各个点的标签,t时刻，采用异步更新，更新过的lable与未更新的lable同时记录Lable_t中
@@ -222,10 +222,11 @@ public class LPA_file {
 		Long start=System.currentTimeMillis();
 		int Iteration=0;
 		/**********************初始化*************************/
-		String filename = "src/com/nieyue/lpa/Karate.txt";
-		//String filename = "src/com/nieyue/lpa/Dolphins.txt";
-		//String filename = "src/com/nieyue/lpa/PolBooks.txt";
-		//String filename = "src/com/nieyue/lpa/Football.txt";
+		String filename;
+		filename = "src/com/nieyue/lpa/Karate.txt";Vertex=34;
+		filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
+		filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
+		//filename = "src/com/nieyue/lpa/Football.txt";Vertex=115;
 		Init_Graph(filename);
 		Initing_Degree_Sorting(Edge_graph);//对重要度进行排序，亦是随机序列
 		

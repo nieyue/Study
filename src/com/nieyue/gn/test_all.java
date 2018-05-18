@@ -120,11 +120,12 @@ public class test_all {
 		int max=0;//这个是max是点的个数
 		
 		
-		String ecoding = "gbk";
-		//File file = new File("src/com/nieyue/gn/Karate.txt");
-		//File file = new File("src/com/nieyue/gn/input4.txt");
-		File file = new File("src/com/nieyue/gn/Dolphins.txt");
-		//File file = new File("src/com/nieyue/gn/Football.txt");
+		String ecoding = "UTF-8";
+		File file=null;
+		file = new File("src/com/nieyue/gn/Karate.txt");
+		file = new File("src/com/nieyue/gn/input4.txt");
+		file = new File("src/com/nieyue/gn/Dolphins.txt");
+		//file = new File("src/com/nieyue/gn/Football.txt");
 		if(file.isFile() && file.exists() ){
 			InputStreamReader read = new InputStreamReader( new FileInputStream(file),ecoding);
 			BufferedReader bufferedreader = new BufferedReader(read);
@@ -280,7 +281,7 @@ public class test_all {
 		//获取邻接矩阵
 		adjacencyListChangeadjacencyMatrix(adjacencyList,vertexNumber);
 		System.out.println("Q:"+ getQ( Communitys,Edge_graph,adjacencyMatrix));
-		System.out.println("算法运行时间为："+(end-start)+"ms");
+		System.out.println("算法运行时间为："+Double.valueOf(end-start)/1000+"s");
 	}
 	
 }

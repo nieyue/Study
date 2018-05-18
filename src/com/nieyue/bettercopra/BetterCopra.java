@@ -57,11 +57,11 @@ public class BetterCopra {
     		{12,10},
     		};
     //从文件中读取数据
-   //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");
-    //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");
-    //adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");
-    //adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");
-    adjacencyList=getFileData("src/com/nieyue/bettercopra/Football.txt");
+   adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");
+  // adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");
+   // adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");
+   // adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");
+    //adjacencyList=getFileData("src/com/nieyue/bettercopra/Football.txt");
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
@@ -675,9 +675,10 @@ public class BetterCopra {
     					//vertexSet=new HashSet<>();
     					vertexSet.addAll(entry.getValue());
     					//vertexList=entry.getValue();    					
-    				}
+    				}else
     				//
     				if( vertexTag.get(avl.get(i)).get(j)==maxctif
+    				&&isequals>=2 
     						//&& currentVertexTagInfluences.get(vertexTag.get(avl.get(i)).get(j))>maxInfluence
     						){
     					//if(isequals>=2 && tagInfluence.get(vertexTag.get(avl.get(i)).get(j))>=maxInfluence){
@@ -767,6 +768,14 @@ public class BetterCopra {
 				}
     		}
     		System.out.println("");
+    		List<int[]> Edge_graph=new ArrayList<>();
+    		for (int i = 0; i < adjacencyList.length; i++) {
+				int[] a=new int[2];
+				a[0]=adjacencyList[i][0];
+				a[1]=adjacencyList[i][1];
+				Edge_graph.add(a);
+			}
+    		System.out.println("Q值:"+getQ(group, Edge_graph, adjacencyMatrix));
     		System.out.println("EQ值:"+getEQ());
     		
     	}
@@ -824,4 +833,40 @@ public class BetterCopra {
 		EQ=EQ_temp/(2*m);
     	return EQ;
     }
+	public static double getQ(Map<Integer, List<Integer>> group2,List<int[]> Edge_graph,int [][] Adjmartrix) {
+		double q = 0;
+		int communityNum = group2.size();
+		int[][] communityMtr = new int[communityNum][communityNum];
+		List<Integer> iList = null;
+		List<Integer> jList = null;
+		List<Integer> keyList = new ArrayList<>(group2.keySet());
+		for (int i_index=0; i_index<keyList.size();i_index++ ) {
+			iList = group2.get(keyList.get(i_index));
+			for (int j_index=0;j_index<keyList.size();j_index++) {
+				jList = group2.get(keyList.get(j_index));
+				for(int i=0;i<iList.size()-1;i++){
+					for(int j=0;j<jList.size();j++){
+						int i4=iList.get(i);
+						int j4=jList.get(j);
+						communityMtr[i_index][j_index] += Adjmartrix[i4-1][j4-1];
+					}
+				}
+			}
+		}
+		float a=0,e=0;
+		double a_2 = 0;
+		for(int i=0;i<communityNum;i++){
+			e += communityMtr[i][i];
+			for(int j=0;j<communityNum;j++){
+				if(i==j)
+					continue;
+				a += communityMtr[i][j];
+			}
+			a_2 += ((0.5*a/(float)Edge_graph.size())*(0.5*a/(float)Edge_graph.size()));
+		}
+	/*	System.out.println("e=" + e + " a=" + a);
+		System.out.println("e=" + e + " a=" + a + " a_2=" + a_2);*/
+		q = e/Edge_graph.size()*0.5 - a_2;
+		return q;
+	}
 }
