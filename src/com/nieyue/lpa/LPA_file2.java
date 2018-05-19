@@ -234,6 +234,68 @@ public class LPA_file2 {
 	
 	public static void main(String[] args) {
 		Long start=System.currentTimeMillis();
+	/*	int Iteration=0;
+		*//**********************初始化*************************//*
+		String filename;
+		filename = "src/com/nieyue/lpa/Karate.txt";Vertex=34;
+		//filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
+		//filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
+		//filename = "src/com/nieyue/lpa/Football.txt";Vertex=115;
+		Init_Graph(filename);
+		Initing_Degree_Sorting(Edge_graph);//随机排序
+		
+		
+		*//*****************对每一个节点，返回所有邻居中某标签数最多的标签值*****************//*
+		while(!Arrays.equals(Lable_t_1,Lable_t) && Iteration<MaxIteration){
+			//由于同步更新在处理二等分网络时的循环震荡问题，这里控制循环次数
+			Iteration++;
+			Lable_Spread();
+		}
+		
+		Community_divided();
+		
+		System.out.print("标签前的网络：");
+		for(int i=0;i<Vertex;i++){
+			System.out.print(i+" ");
+		}
+		System.out.print("\n");
+		
+		System.out.print("标签后的网络：");
+		for(int i=0;i<Vertex;i++){
+			System.out.print(Lable_t[i]+" ");
+		}
+		System.out.print("\n");
+		int key = 0;
+		List<Integer> value = null;
+		for (Iterator<Integer> iterator = Communitys.keySet().iterator(); iterator.hasNext();) {
+			key = (int) iterator.next();
+			System.out.print("标签为" + key + "的网络中的节点序号为：");
+			value = Communitys.get(key);
+			for(int i=0;i<value.size();i++){
+				System.out.print(value.get(i)+"\t");
+			}
+			System.out.print("\n");
+		}*/
+		//System.out.println("划分后的模块度Q为：" + getQ());;
+		//System.out.println("Iteration:"+Iteration);
+		double number=0;
+		for (int i = 0; i <1000; i++) {
+			number+=avg();
+			
+		}
+		System.out.println("划分后的模块度Q为："+number/1000);
+		Long end=System.currentTimeMillis();
+		System.out.println("算法运行时间:"+(end-start)+"ms");
+		
+	}
+	public static double avg() {
+		Adjmartrix=new int[Vertex][Vertex];//图的邻接矩阵形式
+		Edge_graph = null;//图中所有的边
+		Lable_t=new int[Vertex];//存放各个点的标签,t时刻，采用异步更新，更新过的lable与未更新的lable同时记录Lable_t中
+		Lable_t_1=new int[Vertex];//存放各个点的标签,t-1时刻，用于判断划分是否结束
+		Importance_sorting=new int[Vertex];//存放各个点的重要度，即
+		Vertex_neighbour_lable=new int[Vertex];
+		
 		int Iteration=0;
 		/**********************初始化*************************/
 		String filename;
@@ -276,11 +338,8 @@ public class LPA_file2 {
 			}
 			System.out.print("\n");
 		}
-		System.out.println("划分后的模块度Q为：" + getQ());;
-		System.out.println("Iteration:"+Iteration);
-		Long end=System.currentTimeMillis();
-		System.out.println("算法运行时间:"+(end-start)+"ms");
-		
+		//System.out.println("划分后的模块度Q为：" + getQ());;
+		return getQ();
 	}
 }
 

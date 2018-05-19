@@ -57,11 +57,11 @@ public class BetterCopra {
     		{12,10},
     		};
     //从文件中读取数据
-   adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");
-  // adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");
-   // adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");
-   // adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");
-    //adjacencyList=getFileData("src/com/nieyue/bettercopra/Football.txt");
+   adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");//0.324
+   //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");//0.399
+    //adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");//0.317
+    //adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");//0.44
+  // adjacencyList=getFileData("src/com/nieyue/bettercopra/Football.txt");//0.497
      //1-2，获取所有顶点等初始化
      getAdjacencyVertex(adjacencyList);
     //1-3，邻接表转邻接矩阵
@@ -667,11 +667,12 @@ public class BetterCopra {
     			if(!entry.getValue().containsAll(vertexTag.get(avl.get(i)))){
     				noupdatenumber=0;
     			}
-    			
     			//遍历当前节点的邻接点的所有标签，
     			for (int j = 0; j < vertexTag.get(avl.get(i)).size(); j++) {
     				//0，不相等返回自身的
-    				if(isequals==0){
+    				if(isequals==0
+    						//&&getAdjacencyVertexByVertexs(avl.get(i)).size()<=1
+    						){
     					//vertexSet=new HashSet<>();
     					vertexSet.addAll(entry.getValue());
     					//vertexList=entry.getValue();    					
@@ -692,7 +693,7 @@ public class BetterCopra {
     					//System.err.println(maxValue);
     				}else
     				//1代表相同社区，增加标签
-    				if(isequals==1){
+    				if(isequals<=1 ){
     					maxInfluence=tagInfluence.get(vertexTag.get(avl.get(i)).get(j));
     					//maxValue=vertexTag.get(avl.get(i)).get(j);//增加标签
     					if(!vertexSet.contains(vertexTag.get(avl.get(i)).get(j))){

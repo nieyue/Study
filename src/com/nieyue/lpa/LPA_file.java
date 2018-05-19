@@ -224,8 +224,8 @@ public class LPA_file {
 		/**********************初始化*************************/
 		String filename;
 		filename = "src/com/nieyue/lpa/Karate.txt";Vertex=34;
-		filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
-		filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
+		//filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
+		//filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
 		//filename = "src/com/nieyue/lpa/Football.txt";Vertex=115;
 		Init_Graph(filename);
 		Initing_Degree_Sorting(Edge_graph);//对重要度进行排序，亦是随机序列
