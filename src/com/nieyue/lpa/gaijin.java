@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,8 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class LPA_file {
-	static int Vertex = 1111; //解决N个节点的LPA算法	
+public class gaijin {
+	static int Vertex = 34; //默认仅解决7个节点的LPA算法	
 	static int [][] Adjmartrix=new int[Vertex][Vertex];//图的邻接矩阵形式
 	static List<int[]> Edge_graph = null;//图中所有的边
 	static int[] Lable_t=new int[Vertex];//存放各个点的标签,t时刻，采用异步更新，更新过的lable与未更新的lable同时记录Lable_t中
@@ -73,7 +74,6 @@ public class LPA_file {
 			}
 		}
 	}
- 	
 	/**********************对重要度进行排序,重要度即为节点的度数*************************/
 	public static void Initing_Degree_Sorting(List<int[]> Edge){//对每个节点进行赋值标签，初始化为下标值
 		int[][] Degree_array_temp=new int[Vertex][2];
@@ -104,9 +104,74 @@ public class LPA_file {
 		}
 	}
 	
+	/***************************LeaderRank排序***********************************/
+	public static void LeaderRank(List<int[]> Edge){
+		double [] sort_temp = new double[Vertex+1];//保存迭代过程中LR的中间值，t时刻
+		double [] sort = new double[Vertex+1];//保存LR值，t-1时刻
+		sort_temp[0] = 0;//设置公共节点g的LR值为0
+		sort[0] = 0;//设置公共节点g的LR值为0
+		double delta = 0;//用来保存一次迭代完成之后的LR值与上一次LR值的差的绝对值之和
+		for(int i=1;i<sort_temp.length;i++){
+			sort_temp[i] = 0.0;//将第t次的LR值设为0，除g意外的节点
+			sort[i] = 1.0;//将t-1次的LR值设为1，除g意外的节点
+		}
+		int [] degree = getDegree(Adjmartrix);
+		BigDecimal bd = null;
+		do {
+			delta = 0;
+			for(int i=0;i<Edge.size();i++){//用t-1时刻的LR值更新t时刻的LR值，
+				//对每条边的两个节点而言，用节点1的LR值更新节点0的LR值，用节点0的LR值更新节点1的LR值
+				sort_temp[Edge.get(i)[0]] += sort[Edge.get(i)[1]] / degree[Edge.get(i)[1]];
+				sort_temp[Edge.get(i)[1]] += sort[Edge.get(i)[0]] / degree[Edge.get(i)[0]];
+			}
+			for(int i=1;i<Vertex+1;i++){//计算g点对图中节点的LR值的影响
+				//sort_temp[i] += sort[0] / degree[0];//与g相连的所有节点的更新
+				sort_temp[0] += sort[i] / degree[i];//g点本身的更新
+			}
+			for(int i=0;i<sort.length;i++){//计算更新过的LR值与上一次的LR值的差
+				delta += Math.abs(sort_temp[i]-sort[i]);
+				sort[i] = sort_temp[i];
+				sort_temp[i] = 0;
+			}
+			bd = new BigDecimal(delta);//为加快迭代效率，保留4位有效数字
+			delta = bd.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+		}while(delta!=0);//若两次LR的差值为0，可停止更新，注意浮点数不能直接判断相等，要用差值小于极小值来表示相等，或限制静怡
+		double temp = 0;
+		int index = -1;
+		int[] visited = new int[Vertex+1];
+		for(int i=1;i<sort.length;i++){//根据最后LR的结果，对节点顺序进行排序，
+			index = i;
+			for(int j=1;j<sort.length;j++){
+				if(visited[j]==0 && temp <sort[j]){
+					index = j;
+					temp = sort[j];
+				}
+			}
+			Importance_sorting[i-1] = index-1;
+			visited[index] = 1;
+			temp = 0;
+		}
+		
+	}
+	/**
+	 * 计算图中每个节点的度数。
+	 * @param graph
+	 * @return
+	 */
+	static int[] getDegree(int[][] graph){
+		int[] degree = new int[Vertex+1];
+		degree[0] = Vertex;
+		for(int i=0;i<Vertex;i++){
+			degree[i+1] = 1;
+			for(int j=0;j<Vertex;j++){//行和表示对应行的度数
+				degree[i+1] +=graph[i][j];
+			}
+		}
+		return degree;
+	}
 	
 	/**********************标签的选择更新策略*************************/
-	public static void Lable_Spread(){
+ 	public static void Lable_Spread(){
 		for(int i=0;i<Vertex;i++)//记录节点的当前标签，用于判断循环是否结束
 			Lable_t_1[i]=Lable_t[i];	
 		Lable_Update();
@@ -181,6 +246,7 @@ public class LPA_file {
 				Communitys.get(Lable_t[i]).add(i);
 			}
 		}
+		
 	}
 	/*计算模块度,参考博客：https://blog.csdn.net/wangyibo0201/article/details/52048248?locationNum=2 中的定义一*/
 	public static double getQ() {
@@ -197,49 +263,65 @@ public class LPA_file {
 				for(int i=0;i<iList.size();i++){
 					for(int j=0;j<jList.size();j++){
 						communityMtr[i_index][j_index] += Adjmartrix[iList.get(i)][jList.get(j)];
+						if(Adjmartrix[iList.get(i)][jList.get(j)]==1){
+							System.out.println(""+iList.get(i)+":"+jList.get(j)+"-");
+						}
 					}
 				}
+				System.out.println("communityMtr[i_index][j_index]="+communityMtr[i_index][j_index]);
 			}
 		}
-		float a=0,e=0;
+		int sum = 0;
+		for (int i=0;i<Vertex;i++){
+			for (int j=0;j<Vertex;j++){
+				sum += Adjmartrix[i][j];
+			}
+		}
+		System.out.println("Adj总边数为："+sum);
+		double a=0;
+		double e=0;
 		double a_2 = 0;
 		for(int i=0;i<communityNum;i++){
-			e += communityMtr[i][i];
+			e += communityMtr[i][i];//社区i的内部边数之和
+			a = 0;
 			for(int j=0;j<communityNum;j++){
-				if(i==j)
-					continue;
-				a += communityMtr[i][j];
+				a += communityMtr[i][j];//社区边数矩阵的行和
 			}
-			a_2 += ((0.5*a/(float)Edge_graph.size())*(0.5*a/(float)Edge_graph.size()));
+			a = a/sum*0.5;//与第i个社区中的节点相连的边在总边数中占的百分比
+			a_2 += a*a;//ai*ai
 		}
-	/*	System.out.println("e=" + e + " a=" + a);
-		System.out.println("e=" + e + " a=" + a + " a_2=" + a_2);*/
-		q = e/Edge_graph.size()*0.5 - a_2;
+		System.out.println("e=" + e/sum + " a_2=" + a_2);
+		q=e/sum - a_2;
 		return q;
 	}
 	
 	public static void main(String[] args) {
-		Long start=System.currentTimeMillis();
 		int Iteration=0;
 		/**********************初始化*************************/
-		String filename;
-		filename = "src/com/nieyue/lpa/Karate.txt";Vertex=80;
-		//filename = "src/com/nieyue/lpa/Dolphins.txt";Vertex=62;
-		//filename = "src/com/nieyue/lpa/PolBooks.txt";Vertex=105;
-		//filename = "src/com/nieyue/lpa/Football.txt";Vertex=115;
+		String filename=null;
+		filename= "src/com/nieyue/lpa/Karate.txt";
+		// filename = "Karate.txt";
+		// filename = "Karate.txt";
 		Init_Graph(filename);
-		Initing_Degree_Sorting(Edge_graph);//对重要度进行排序，亦是随机序列
-		
-		
+		//可以从两种排序方法中任选一种进行测试
+//		Initing_Degree_Sorting(Edge_graph);//对重要度进行排序
+		LeaderRank(Edge_graph);
+		System.out.print("对节点排序的结果为：");
+		for(int i=0;i<Importance_sorting.length;i++){
+			System.out.print(Importance_sorting[i]+" ");
+		}
+		System.out.println("");
+		//Sum_degree_vertex(Edge_graph);
+		long startTime = System.currentTimeMillis();
 		/*****************对每一个节点，返回所有邻居中某标签数最多的标签值*****************/
 		while(!Arrays.equals(Lable_t_1,Lable_t) && Iteration<MaxIteration){
 			//由于同步更新在处理二等分网络时的循环震荡问题，这里控制循环次数
 			Iteration++;
 			Lable_Spread();
 		}
-		
+		long endTime = System.currentTimeMillis();
 		Community_divided();
-		
+		long usedTime = endTime - startTime;
 		System.out.print("标签前的网络：");
 		for(int i=0;i<Vertex;i++){
 			System.out.print(i+" ");
@@ -255,18 +337,15 @@ public class LPA_file {
 		List<Integer> value = null;
 		for (Iterator<Integer> iterator = Communitys.keySet().iterator(); iterator.hasNext();) {
 			key = (int) iterator.next();
-			System.out.print("标签为" + key + "的网络中的节点序号为：");
+			System.out.print("标签为" + key + "的网络中的节点序号为： ");
 			value = Communitys.get(key);
 			for(int i=0;i<value.size();i++){
 				System.out.print(value.get(i)+"\t");
 			}
-			System.out.print("\n");
+			System.out.println("\n节点总数为：" + value.size());
 		}
-		System.out.println("划分后的模块度Q为：" + getQ());;
+		System.out.println("划分后的模块度为：" + getQ());;
 		System.out.println("Iteration:"+Iteration);
-		Long end=System.currentTimeMillis();
-		System.out.println("算法运行时间:"+(end-start)+"ms");
-		
+		System.out.println("算法运行时间:"+usedTime+"ms");
 	}
 }
-

@@ -112,11 +112,12 @@ public class Copra {
     	    		{12,10},
     	    		};
     	    //从文件中读取数据
+    	  // adjacencyList=getFileData("src/com/nieyue/bettercopra/lesmis.txt");//0.31
     	 // adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");//0.31
     	  //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");//0.45
     	  // adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");//0.412
     	   // adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");//0.438
-    	    adjacencyList=getFileData("src/com/nieyue/bettercopra/Football.txt");//0.56
+    	   // adjacencyList=getFileData("src/com/nieyue/bettercopra/Football.txt");//0.56
     	     //1-2，获取所有顶点等初始化
     	     getAdjacencyVertex(adjacencyList);
     	    //1-3，邻接表转邻接矩阵
@@ -154,9 +155,9 @@ public class Copra {
 				BufferedReader bufferreader = new BufferedReader(isr);
 				String text_line = null;
 
-				if((text_line = bufferreader.readLine()) == null ){
+				/*if((text_line = bufferreader.readLine()) == null ){
 					System.out.println("网络中点的个数读取为空");
-				} 
+				} */
 				while( (text_line=bufferreader.readLine()) != null ){
 					//text_line=text_line.replaceAll("\\s*", "");
 					String[] textlines = text_line.split(" ");

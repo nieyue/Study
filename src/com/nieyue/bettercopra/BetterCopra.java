@@ -57,7 +57,8 @@ public class BetterCopra {
     		{12,10},
     		};
     //从文件中读取数据
-   adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");//0.324
+    adjacencyList=getFileData("src/com/nieyue/bettercopra/lesmis.txt");
+ // adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate.txt");//0.324
    //adjacencyList=getFileData("src/com/nieyue/bettercopra/Karate2.txt");//0.399
     //adjacencyList=getFileData("src/com/nieyue/bettercopra/Dolphins.txt");//0.317
     //adjacencyList=getFileData("src/com/nieyue/bettercopra/polBooks.txt");//0.44
@@ -98,9 +99,9 @@ public class BetterCopra {
 				BufferedReader bufferreader = new BufferedReader(isr);
 				String text_line = null;
 
-				if((text_line = bufferreader.readLine()) == null ){
+				/*if((text_line = bufferreader.readLine()) == null ){
 					System.out.println("网络中点的个数读取为空");
-				} 
+				} */
 				while( (text_line=bufferreader.readLine()) != null ){
 					//text_line=text_line.replaceAll("\\s*", "");
 					String[] textlines = text_line.split(" ");
