@@ -15,11 +15,11 @@ import java.util.Collections;
 public class RadixSort {
 	 public static void main(String[] args) {    
 	        RadixSort  obj=new RadixSort();  
-	        int[] a=obj.initArray(100000);
+	        int[] a=obj.initArray(1000000);
 	        System.out.println("初始值：");    
 	        obj.print(a);    
 	        long starttime=System.currentTimeMillis();
-	        obj.radixSort(a,1000,10);    
+	        obj.radixSort(a,1000,10);
 	        long endtime=System.currentTimeMillis();
 	        System.out.println("\n排序后：");    
 	        obj.print(a);    

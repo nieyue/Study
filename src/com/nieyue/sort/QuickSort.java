@@ -27,7 +27,7 @@ public class QuickSort {
 	        obj.print(a);    
 	        System.out.println("\n总耗时："+Double.valueOf(endtime-starttime)/1000+"s");
 	        //100000样本0.016秒
-	        //100000样本0.126秒
+	        //1000000样本0.126秒
 	    }
 	 /**
 	  * 初始数据
@@ -74,9 +74,9 @@ public class QuickSort {
 	    	                j--;   
 	    	            }   
 	    	        } while (i <= j);   
-	    	        if (start < j)   
-	    	            quickSort(a, start, j);   
-	    	        if (end > i)   
+	    	        if (start < j)
+	    	            quickSort(a, start, j);
+	    	        if (end > i)
 	    	            quickSort(a, i, end);   
 	    	    }    
 	    }  
