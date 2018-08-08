@@ -14,11 +14,9 @@ public class MyInvocationHandler  implements InvocationHandler {
 	/**
 	 * 绑定委托对象并返回一个  代理占位
 	 * @param target 真实对象
-	 * @param interfaces 接口
 	 * @return  代理对象  占位
 	 */
-	@SuppressWarnings("rawtypes")
-	public Object bind(Object target,Class[] interfaces) {
+	public Object bind(Object target) {
 		this.target=target;
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(),
 				target.getClass().getInterfaces(), this);
