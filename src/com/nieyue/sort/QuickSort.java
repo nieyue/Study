@@ -18,7 +18,7 @@ public class QuickSort {
 	 public static void main(String[] args) {    
 	        QuickSort  obj=new QuickSort();  
 	        int[] a=obj.initArray(1000000);
-	        System.out.println("初始值：");    
+	        System.out.println("初始值：");
 	        obj.print(a);    
 	        long starttime=System.currentTimeMillis();
 	        obj.quickSort(a,0,a.length-1);    

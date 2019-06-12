@@ -1,0 +1,11 @@
+
+?squid:S1148y"#Use a logger to log this exception.(Ú¸ÿÿÿÿÿ
+N
+squid:S106d"9Replace this use of System.out or System.err by a logger.(Â¬
+|squid:S1149­"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(¼ÿ‰Ôøÿÿÿÿ
+T
+squid:S106J"9Replace this use of System.out or System.err by a logger.(ÖıÎûÿÿÿÿ
+nsquid:S3776U"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(ì×ƒØøÿÿÿÿ
+O
+squid:S106G"9Replace this use of System.out or System.err by a logger.(²Ì
+csquid:S3027"FPut single-quotes around '&' to use the faster "indexOf(char)" method.(Õ³ê¨üÿÿÿÿ

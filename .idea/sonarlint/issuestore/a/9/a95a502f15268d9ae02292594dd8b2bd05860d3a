@@ -1,0 +1,9 @@
+
+Tsquid:S1197%"8Move the array designator from the variable to the type.(ñ•¶ùşÿÿÿÿ
+^squid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(‘„Ş
+Bsquid:S1068"+Remove this unused "content" private field.(Êú†
+Qsquid:S1161":Add the "@Override" annotation above this method signature(“–ış
+N
+squid:S106+"9Replace this use of System.out or System.err by a logger.(´şµ
+?squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Asquid:S001083")Either remove or fill this block of code.(”ı¾

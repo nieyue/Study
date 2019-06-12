@@ -1,0 +1,15 @@
+
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ô‡Ö½ùÿÿÿÿ
+psquid:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÃªÄ…
+Tsquid:S1197&"8Move the array designator from the variable to the type.(Èã¶˜ûÿÿÿÿ
+Tsquid:S11975"8Move the array designator from the variable to the type.(‰ÏÊ¢ùÿÿÿÿ
+nsquid:S3776;"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(À¬¸Îúÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Öº©Ó
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¹Å»ïûÿÿÿÿ
+;squid:S1659?"Declare "j" on a separate line.(»¼ûîûÿÿÿÿ
+O
+squid:S1068"9Replace this use of System.out or System.err by a logger.(ÆÅ‡˜
+\squid:S2184"ECast one of the operands of this subtraction operation to a "double".(Öº©Ó

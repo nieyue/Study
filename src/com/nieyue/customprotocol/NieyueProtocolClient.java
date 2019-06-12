@@ -15,6 +15,7 @@ import java.net.URL;
 public class NieyueProtocolClient {
 
     public static void main(String[] args) {
+
         BufferedReader reader=null;
         try {
             // 配置协议处理器查找规则一

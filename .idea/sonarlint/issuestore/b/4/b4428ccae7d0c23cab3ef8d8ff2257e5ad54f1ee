@@ -1,0 +1,14 @@
+
+Tsquid:S11972"8Move the array designator from the variable to the type.(‰ÏÊ¢ùÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¹Å»ïûÿÿÿÿ
+psquid:S2293$"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÃªÄ…
+O
+squid:S1065"9Replace this use of System.out or System.err by a logger.(ÆÅ‡˜
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ô‡Ö½ùÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Öº©Ó
+Tsquid:S1197#"8Move the array designator from the variable to the type.(Èã¶˜ûÿÿÿÿ
+ƒ squid:ForLoopCounterChangedCheckU"XRefactor the code in order to not assign to this loop counter from within the loop body.(’Ìýw
+\squid:S2184"ECast one of the operands of this subtraction operation to a "double".(Öº©Ó
