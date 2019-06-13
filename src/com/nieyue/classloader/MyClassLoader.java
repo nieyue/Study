@@ -13,15 +13,16 @@ import java.nio.channels.WritableByteChannel;
  */
 public class MyClassLoader extends ClassLoader
  {
-     //存放class
-     Class<?> clazz;
-
-     public Class<?> getClazz() {
-         return clazz;
-     }
+     Class<?> clazz=null;
 
      public void setClazz(Class<?> clazz) {
          this.clazz = clazz;
+     }
+
+     public static Class<?> init(String name) throws ClassNotFoundException {
+         MyClassLoader mcl=new MyClassLoader(ClassLoader.getSystemClassLoader().getParent() );
+         Class<?> c1=Class.forName(name,true,mcl);
+         return c1;
      }
 
      public MyClassLoader()
@@ -32,11 +33,6 @@ public class MyClassLoader extends ClassLoader
     public MyClassLoader(ClassLoader parent)
     {
         super(parent);
-    }
-    public MyClassLoader(ClassLoader parent,Class<?> clazz)
-    {
-        super(parent);
-        this.clazz=clazz;
     }
 
     protected Class<?> findClass(String name) throws ClassNotFoundException
@@ -59,12 +55,13 @@ public class MyClassLoader extends ClassLoader
     private File getClassFile(String name)
     {
         File file=null;
+
         try {
             clazz = Class.forName(name);//外部放入
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        // System.err.println(clazz.getResource("").getPath()+clazz.getSimpleName()+".class");
+         //System.err.println(clazz.getResource("").getPath()+clazz.getSimpleName()+".class");
             // File file = new File("E:\\nieyue\\ide\\Study\\src\\com\\nieyue\\classloader\\Test.class");
             file = new File(clazz.getResource("").getPath()+clazz.getSimpleName()+".class");
         return file;

@@ -1,0 +1,41 @@
+
+;squid:S1659"Declare "j" on a separate line.(Æ™‚ùÿÿÿÿ
+;squid:S1659"Declare "k" on a separate line.(Æ™‚ùÿÿÿÿ
+9squid:S1659""Declare "endV" on a separate line.(ìÜ¥
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(şÁ³Ô
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Û«·Ô
+T
+squid:S106 "9Replace this use of System.out or System.err by a logger.(ÅÂ¹Éıÿÿÿÿ
+O
+squid:S106""9Replace this use of System.out or System.err by a logger.(àÃßš
+T
+squid:S106#"9Replace this use of System.out or System.err by a logger.(Šùßùúÿÿÿÿ
+T
+squid:S106%"9Replace this use of System.out or System.err by a logger.(ÜÅ¾Ãÿÿÿÿÿ
+T
+squid:S106'"9Replace this use of System.out or System.err by a logger.(Ôáõ³şÿÿÿÿ
+O
+squid:S106@"9Replace this use of System.out or System.err by a logger.(¸î
+T
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+T
+squid:S106D"9Replace this use of System.out or System.err by a logger.(ò‹ùŸûÿÿÿÿ
+T
+squid:S106G"9Replace this use of System.out or System.err by a logger.(ú–Ø°ıÿÿÿÿ
+T
+squid:S106I"9Replace this use of System.out or System.err by a logger.(à‰ãßıÿÿÿÿ
+T
+squid:S106L"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+Lsquid:S22098"5Change this instance-reference to a static reference.(ÒŞğ¼
+Qsquid:S2209F"5Change this instance-reference to a static reference.(‹Ñé¤ıÿÿÿÿ
+msquid:S00116"PRename this field "GType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡é¡İøÿÿÿÿ
+lsquid:S00116"TRename this field "VertexNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÛ Ç
+jsquid:S00116"RRename this field "EdgeNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æšöı
+nsquid:S00116"QRename this field "Vertex" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›•Ï”øÿÿÿÿ
+msquid:S00116"URename this field "EdgeWeight" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½—İÜ
+qsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(²ş½
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(èœéüÿÿÿÿ
+Asquid:S3457G"%String contains no format specifiers.(ú–Ø°ıÿÿÿÿ
+]squid:S3457I"AFormat specifiers should be used instead of string concatenation.(à‰ãßıÿÿÿÿ

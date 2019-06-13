@@ -1,0 +1,14 @@
+
+Csquid:S1068",Remove this unused "currDist" private field.(é«–¨
+hsquid:CommentedOutCodeLineŠ"<This block of commented-out lines of code should be removed.(‚áà¨ùÿÿÿÿ
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(®Æ¢à
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ä€Ð‚
+U
+squid:S106‘"9Replace this use of System.out or System.err by a logger.(ÕûïŠúÿÿÿÿ
+@squid:S1481q")Remove this unused "racs" local variable.(òÍ“À
+Msquid:S1481x"1Remove this unused "verticeInfos" local variable.(à˜»¤øÿÿÿÿ
+esquid:S00100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïíâ>
+\squid:S1854x"@Remove this useless assignment to local variable "verticeInfos".(à˜»¤øÿÿÿÿ
+Osquid:S1854q"8Remove this useless assignment to local variable "racs".(òÍ“À

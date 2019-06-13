@@ -1,7 +1,7 @@
 
 Fsquid:S2093"*Change this "try" to a try-with-resources.(б╗в№∙    
-T
-squid:S106'"9Replace this use of System.out or System.err by a logger.(о¤сы√    
-_squid:UselessImportCheck";Remove this unused import 'java.net.MalformedURLException'.(к╦▐И
 ?squid:S1148)"#Use a logger to log this exception.(А╔╘Е¤    
 ?squid:S1148/"#Use a logger to log this exception.(А╔╘Е¤    
+_squid:UselessImportCheck";Remove this unused import 'java.net.MalformedURLException'.(к╦▐И
+T
+squid:S106'"9Replace this use of System.out or System.err by a logger.(о¤сы√    
