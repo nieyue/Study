@@ -1,0 +1,5 @@
+
+]squid:S1075"ARefactor your code to get this URI from a customizable parameter.(¡å¦øÿÿÿÿ
+Ksquid:EmptyStatementUsageCheck1"Remove this empty statement.(Åñ­õşÿÿÿÿ
+qsquid:S2068"U'Password' detected in this expression, review this potentially hardcoded credential.(èÄŸúÿÿÿÿ
+csquid:S00112#"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ

@@ -1,0 +1,11 @@
+
+Fsquid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹æ¤÷´-
+Hsquid:S1181)"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ8¹æ¤÷´-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(µ„ÑÌúÿÿÿÿ8Ã¶Ñö´-
+Xsquid:S1141%"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8¹æ¤÷´-
+Msquid:S2093 "*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8¹æ¤÷´-
+Qsquid:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Msquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8¹æ¤÷´-
+?squid:S11489"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Lsquid:S1068")Remove this unused "hello" private field.(Ëòãÿÿÿÿÿ8¹æ¤÷´-
