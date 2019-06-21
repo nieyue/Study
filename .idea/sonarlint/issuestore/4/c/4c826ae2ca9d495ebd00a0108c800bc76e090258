@@ -1,57 +1,57 @@
 
-Psquid:S1197è"8Move the array designator from the variable to the type.(ú›†õ
-gsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(≥√ùº˘ˇˇˇˇ
-bsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(Øÿá
-gsquid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(≥√ùº˘ˇˇˇˇ
 T
-squid:S106+"9Replace this use of System.out or System.err by a logger.(≥√ùº˘ˇˇˇˇ
+squid:S106G"9Replace this use of System.out or System.err by a logger.(Í¬‘Ø˛ˇˇˇˇ
+O
+squid:S106;"9Replace this use of System.out or System.err by a logger.(∞õ¿Í
+fsquid:S2259ó"N"NullPointerException" will be thrown when invoking method "multiplyMatrix()".(¬ÛæØ
+O
+squid:S106v"9Replace this use of System.out or System.err by a logger.(ˆ”Û˙
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(´œÇ“˚ˇˇˇˇ
 O
 squid:S106-"9Replace this use of System.out or System.err by a logger.(Øÿá
 T
-squid:S106/"9Replace this use of System.out or System.err by a logger.(≥√ùº˘ˇˇˇˇ
-T
-squid:S1063"9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
-T
 squid:S1065"9Replace this use of System.out or System.err by a logger.(‚…¿‹¸ˇˇˇˇ
 T
-squid:S1067"9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
-O
-squid:S106;"9Replace this use of System.out or System.err by a logger.(∞õ¿Í
-T
-squid:S106="9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
-T
-squid:S106G"9Replace this use of System.out or System.err by a logger.(Í¬‘Ø˛ˇˇˇˇ
-T
-squid:S106I"9Replace this use of System.out or System.err by a logger.(ÀÃ√≥˝ˇˇˇˇ
-O
-squid:S106K"9Replace this use of System.out or System.err by a logger.(ºò≠‰
-T
-squid:S106O"9Replace this use of System.out or System.err by a logger.(ŒºÃ∂¸ˇˇˇˇ
-T
-squid:S106U"9Replace this use of System.out or System.err by a logger.(¨Ÿˇù˘ˇˇˇˇ
-T
-squid:S106W"9Replace this use of System.out or System.err by a logger.(ÕöãÀˇˇˇˇˇ
-N
-squid:S106]"9Replace this use of System.out or System.err by a logger.(”˜˘=
-T
 squid:S106b"9Replace this use of System.out or System.err by a logger.(Æéáª¸ˇˇˇˇ
-T
-squid:S106l"9Replace this use of System.out or System.err by a logger.(Ã˚¡ˇ¸ˇˇˇˇ
-O
-squid:S106v"9Replace this use of System.out or System.err by a logger.(ˆ”Û˙
-O
-squid:S106{"9Replace this use of System.out or System.err by a logger.(ûËÃ±
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(´œÇ“˚ˇˇˇˇ
-U
-squid:S106â"9Replace this use of System.out or System.err by a logger.(”◊Œ˜˘ˇˇˇˇ
-P
-squid:S106í"9Replace this use of System.out or System.err by a logger.(ïŒ™Ô
 U
 squid:S106ñ"9Replace this use of System.out or System.err by a logger.(‰ñﬂƒ˛ˇˇˇˇ
 isquid:S3776&"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(çò√µ
-isquid:S3776j"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(‹€∫ß
-fsquid:S2259ó"N"NullPointerException" will be thrown when invoking method "multiplyMatrix()".(¬ÛæØ
-=squid:S1168"&Return an empty array instead of null.(•πÔç
+bsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(Øÿá
+U
+squid:S106â"9Replace this use of System.out or System.err by a logger.(”◊Œ˜˘ˇˇˇˇ
+T
+squid:S106/"9Replace this use of System.out or System.err by a logger.(≥√ùº˘ˇˇˇˇ
+T
+squid:S106+"9Replace this use of System.out or System.err by a logger.(≥√ùº˘ˇˇˇˇ
+T
+squid:S106O"9Replace this use of System.out or System.err by a logger.(ŒºÃ∂¸ˇˇˇˇ
+O
+squid:S106{"9Replace this use of System.out or System.err by a logger.(ûËÃ±
+gsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(≥√ùº˘ˇˇˇˇ
+T
+squid:S1063"9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
+N
+squid:S106]"9Replace this use of System.out or System.err by a logger.(”˜˘=
+T
+squid:S106I"9Replace this use of System.out or System.err by a logger.(ÀÃ√≥˝ˇˇˇˇ
+T
+squid:S106l"9Replace this use of System.out or System.err by a logger.(Ã˚¡ˇ¸ˇˇˇˇ
+T
+squid:S106U"9Replace this use of System.out or System.err by a logger.(¨Ÿˇù˘ˇˇˇˇ
+T
+squid:S1067"9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
 csquid:S00112o"FDefine and throw a dedicated exception instead of using a generic one.(¸âÁÓ˘ˇˇˇˇ
+Psquid:S1197è"8Move the array designator from the variable to the type.(ú›†õ
+gsquid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(≥√ùº˘ˇˇˇˇ
+T
+squid:S106="9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
+P
+squid:S106í"9Replace this use of System.out or System.err by a logger.(ïŒ™Ô
+isquid:S3776j"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(‹€∫ß
 dsquid:S00112Ö"FDefine and throw a dedicated exception instead of using a generic one.(õ¥‘ü˛ˇˇˇˇ
+=squid:S1168"&Return an empty array instead of null.(•πÔç
+T
+squid:S106W"9Replace this use of System.out or System.err by a logger.(ÕöãÀˇˇˇˇˇ
+O
+squid:S106K"9Replace this use of System.out or System.err by a logger.(ºò≠‰

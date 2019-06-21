@@ -30,7 +30,7 @@ public class Matrix {
 	       }
 	return c;
 	}
-    
+
     /** 
      * 打印一个矩阵
      * @param type类型 1输入矩阵，2结果指针
