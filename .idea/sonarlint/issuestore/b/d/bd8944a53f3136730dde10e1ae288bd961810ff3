@@ -1,0 +1,73 @@
+
+P
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(›—ß
+Rsquid:S2696K"6Make the enclosing method "static" or remove this set.(·ıû ùÿÿÿÿ
+Rsquid:S2696?"6Make the enclosing method "static" or remove this set.(—”ğøÿÿÿÿ
+ysquid:S3008"]Rename this field "full_Port_Cone_nat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üåâ¼üÿÿÿÿ
+nsquid:S2737t"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
+U
+squid:S106—"9Replace this use of System.out or System.err by a logger.(Ôñ®²ûÿÿÿÿ
+Rsquid:S2696L"6Make the enclosing method "static" or remove this set.(ü…—ûÿÿÿÿ
+Rsquid:S2274§":Remove this call to "wait" or move it into a "while" loop.(½°›
+Csquid:S3010%"'Remove this assignment of "clientPort".(å²şÔøÿÿÿÿ
+csquid:S001128"FDefine and throw a dedicated exception instead of using a generic one.(ŒÚ„§ÿÿÿÿÿ
+isquid:S3776*"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(ìóå
+isquid:S00117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûŠğ³
+Msquid:S2696P"6Make the enclosing method "static" or remove this set.(ë÷Á
+T
+squid:S106k"9Replace this use of System.out or System.err by a logger.(«™ÒÕıÿÿÿÿ
+nsquid:S00117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜâŒøÿÿÿÿ
+U
+squid:S106¹"9Replace this use of System.out or System.err by a logger.(Ôñ®²ûÿÿÿÿ
+?squid:S3010&"#Remove this assignment of "socket".(‹£í»ùÿÿÿÿ
+O
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ÿÍÿ×
+dsquid:S00112›"FDefine and throw a dedicated exception instead of using a generic one.(êÄõãúÿÿÿÿ
+tsquid:S3008"XRename this field "full_cone_nat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰µ–åùÿÿÿÿ
+U
+squid:S106¶"9Replace this use of System.out or System.err by a logger.(Ôñ®²ûÿÿÿÿ
+T
+squid:S106:"9Replace this use of System.out or System.err by a logger.(¸ãó¶şÿÿÿÿ
+Rsquid:S2696p"6Make the enclosing method "static" or remove this set.(—”ğøÿÿÿÿ
+Bsquid:S3010$"&Remove this assignment of "proxyPort".(·ßİ˜øÿÿÿÿ
+Msquid:S2446¾"0"notify" may not wake up the appropriate thread.(¿¡Ÿ£ıÿÿÿÿ
+Msquid:S2696X"6Make the enclosing method "static" or remove this set.(™Ã·«
+Rsquid:S2696/"6Make the enclosing method "static" or remove this set.(ü…—ûÿÿÿÿ
+Qsquid:S1141M"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Msquid:S2696A"6Make the enclosing method "static" or remove this set.(ë÷Á
+nsquid:S00117]"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºè‘ùÿÿÿÿ
+Msquid:S2696."6Make the enclosing method "static" or remove this set.(ş·¬
+@squid:S1148É"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+hsquid:S3008"QRename this field "own_ip" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒµ¹¹
+T
+squid:S1067"9Replace this use of System.out or System.err by a logger.(åÚ©¾ûÿÿÿÿ
+Csquid:S3010 "'Remove this assignment of "serverPort".(×éÑùÿÿÿÿ
+csquid:CommentedOutCodeLineŠ"<This block of commented-out lines of code should be removed.(šÃï¦
+Msquid:S2696C"6Make the enclosing method "static" or remove this set.(ûÒıÙ
+Msquid:S2696`"6Make the enclosing method "static" or remove this set.(ş³…Ô
+Rsquid:S2696g"6Make the enclosing method "static" or remove this set.(ü…—ûÿÿÿÿ
+T
+squid:S106_"9Replace this use of System.out or System.err by a logger.(Ÿ¡ö¼øÿÿÿÿ
+Hsquid:S2446¦"0"notify" may not wake up the appropriate thread.(´®Ë”
+Rsquid:S1068"6Remove this unused "full_Port_Cone_nat" private field.(Üåâ¼üÿÿÿÿ
+<squid:S3010"%Remove this assignment of "serverIp".(ëœä
+Msquid:S2696j"6Make the enclosing method "static" or remove this set.(¥ç
+Qsquid:S1141f"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Ssquid:S2696œ"6Make the enclosing method "static" or remove this set.(ê´ê¥ıÿÿÿÿ
+jsquid:S3008"SRename this field "cone_nat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÄÖ…
+@squid:S3010#"$Remove this assignment of "proxyIp".(Šúšíùÿÿÿÿ
+O
+squid:S106o"9Replace this use of System.out or System.err by a logger.(„øÊ–
+_squid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(‘ãó‚
+Ssquid:S2696“"6Make the enclosing method "static" or remove this set.(ü…—ûÿÿÿÿ
+isquid:S00117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ĞÂ†
+Ssquid:S2696‘"6Make the enclosing method "static" or remove this set.(Š³ıÔüÿÿÿÿ
+}squid:S1450"aRemove the "full_Port_Cone_nat" field and declare it as a local variable in the relevant methods.(Üåâ¼üÿÿÿÿ
+^squid:S00112*"FDefine and throw a dedicated exception instead of using a generic one.(ìóå
+Qsquid:S11411"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+P
+squid:S106ˆ"9Replace this use of System.out or System.err by a logger.(†íî‰
+O
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(®ËÕ
+Rsquid:S2696Z"6Make the enclosing method "static" or remove this set.(ü…—ûÿÿÿÿ
+jsquid:CommentedOutCodeLineÄ"<This block of commented-out lines of code should be removed.(¡£­ö8ğÊŸ•.

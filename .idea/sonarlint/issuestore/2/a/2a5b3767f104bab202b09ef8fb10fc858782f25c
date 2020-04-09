@@ -1,0 +1,11 @@
+
+psquid:S2293S"YReplace the type specification in this constructor call with the diamond operator ("<>").(û€ÆÏ
+nsquid:S3973b"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ù•ıì
+vsquid:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(å¢³Î
+isquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Çµí‘
+Zsquid:S2259x"CA "NullPointerException" could be thrown; "lists" is nullable here.(Ô¸Ê¢
+squid:S2681d"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(ˆâã¼
+Hsquid:S1068",Remove this unused "udp_size" private field.(ˆĞÜÿÿÿÿÿ
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(âÈ´Úşÿÿÿÿ
+osquid:S3008"SRename this field "udp_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆĞÜÿÿÿÿÿ
+?squid:S1148^"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

@@ -1,0 +1,6 @@
+
+?squid:S1148,"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Nsquid:S2446("0"notify" may not wake up the appropriate thread.(áŠÀ½8Àÿøœ•.
+{squid:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(’şµçùÿÿÿÿ
+Ssquid:S1854"7Remove this useless assignment to local variable "bin".(Íèƒ•üÿÿÿÿ
+]squid:S2274":Remove this call to "wait" or move it into a "while" loop.(²“‹Öüÿÿÿÿ8•­ì•.

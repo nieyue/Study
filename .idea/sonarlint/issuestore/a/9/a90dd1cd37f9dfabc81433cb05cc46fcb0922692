@@ -1,0 +1,14 @@
+
+U
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(ÖüÁx8ŒÆé¢½-
+[
+squid:S106E"9Replace this use of System.out or System.err by a logger.(…ÑÑŸüÿÿÿÿ8ŒÆé¢½-
+[
+squid:S106P"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8ŒÆé¢½-
+Ysquid:S1854J"6Remove this useless assignment to local variable "in".(ÂÚéÿÿÿÿÿ8ŒÆé¢½-
+Jsquid:S1481J"'Remove this unused "in" local variable.(ÂÚéÿÿÿÿÿ8ŒÆé¢½-
+[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ŒÆé¢½-
+2squid:S1700"Rename field "array"(ûÁú8ŒÆé¢½-
+Zsquid:S1854L"7Remove this useless assignment to local variable "in3".(®¬ƒÉüÿÿÿÿ8ŒÆé¢½-
+Ksquid:S1481L"(Remove this unused "in3" local variable.(®¬ƒÉüÿÿÿÿ8ŒÆé¢½-
+]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8ŒÆé¢½-

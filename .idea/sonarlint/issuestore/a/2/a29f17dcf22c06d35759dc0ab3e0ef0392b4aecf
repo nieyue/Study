@@ -1,0 +1,14 @@
+
+Gsquid:S1148…"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8üáÀ·-
+esquid:S2142„"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8üáÀ·-
+nsquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(§ÀÙ÷ıÿÿÿÿ8¶©‘Á·-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ñ»Ìùÿÿÿÿ8³´´Á·-
+¨squid:S1862?"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(¹½½Šûÿÿÿÿ8šÖ°Á·-
+T
+squid:S106n"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+T
+squid:S106l"9Replace this use of System.out or System.err by a logger.(ó™öìùÿÿÿÿ
+nsquid:CommentedOutCodeLine|"<This block of commented-out lines of code should be removed.(ÊÖµŸûÿÿÿÿ8¶©‘Á·-
+bsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(˜ı£¾
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(£™
