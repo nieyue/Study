@@ -12,7 +12,7 @@ public class UDPClientA {
             // 向server发起请求
             SocketAddress target = new InetSocketAddress(ip, port);
             DatagramSocket client = new DatagramSocket();
-            String message = "I am UPDClientA 192.168.1.114";
+            String message = "register I am UPDClientA 192.168.1.114";
             byte[] sendbuf = message.getBytes();
             DatagramPacket pack = new DatagramPacket(sendbuf, sendbuf.length, target);
             client.send(pack);

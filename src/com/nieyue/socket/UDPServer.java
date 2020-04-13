@@ -28,27 +28,34 @@ public class UDPServer {
 
                 String receiveMessage = new String(packet.getData(), 0, packet.getLength());
                 System.out.println(receiveMessage);
+                port = packet.getPort();
+                address = packet.getAddress();
                 //{"roomId":roomId}
                 if(receiveMessage.indexOf(idname1)<=-1){
+                    if(receiveMessage.indexOf("register")>-1){
+                        //注册
+                        DatagramPacket sendPacket = new DatagramPacket("".getBytes(), "".getBytes().length, address, port);
+                        server.send(sendPacket);
+                    }
                     continue;
                 }
                 Long roomId=Long.valueOf(receiveMessage.substring(0, receiveMessage.indexOf(idname1)));
                 Long clientId=Long.valueOf(receiveMessage.substring(receiveMessage.indexOf(idname1)+idname1.length(),receiveMessage.indexOf(idname2)));
                 msg=receiveMessage.substring(receiveMessage.indexOf(idname2));
                 if(roomId!=null){
-                    port = packet.getPort();
-                    address = packet.getAddress();
+
                     Map<Long ,Map<String,Object>> roommap=new HashMap<>();
                     Map<String ,Object> clientmap=new HashMap<>();
                     if(map.containsKey(roomId)){
                         roommap=map.get(roomId);
-                        if(roommap.containsKey(clientId)){
-                            clientmap=roommap.get(clientId);
-                        }
-                        clientmap.put("host",address.getHostAddress());
-                        clientmap.put("port",port);
-                        clientmap.put("msg",msg);
                     }
+                    if(roommap.containsKey(clientId)){
+                        clientmap=roommap.get(clientId);
+                    }
+                    clientmap.put("host",address.getHostAddress());
+                    clientmap.put("port",port);
+                    clientmap.put("msg",msg);
+
                     roommap.put(clientId,clientmap);
                     map.put(roomId,roommap);
                     //两个都接收到后分别A、B址地交换互发
@@ -59,14 +66,15 @@ public class UDPServer {
                         Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator = roommap.entrySet().iterator();
                         Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator2 = roommap.entrySet().iterator();
                         while (roomiterator.hasNext()){
-                            Long cid = roomiterator.next().getKey();
-                            Map<String, Object> cmap = roomiterator.next().getValue();
+                            Map.Entry<Long, Map<String, Object>> next = roomiterator.next();
+                            Long cid =  next.getKey();
+                            Map<String, Object> cmap = next.getValue();
                             InetAddress address1 =InetAddress.getByName(cmap.get("host").toString());
                             Integer port1 = Integer.valueOf(cmap.get("port").toString());
                             while (roomiterator2.hasNext()){
-                                Long cid2 = roomiterator.next().getKey();
+                                Long cid2 = roomiterator2.next().getKey();
                                 if(!cid.equals(cid2)){
-                                    send(msg, port1, address1, server);
+                                    send(map.toString(), port1, address1, server);
                                 }
                             }
                         }

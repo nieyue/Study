@@ -12,12 +12,12 @@ public class UDPClientB {
             //向server发起请求
             SocketAddress target = new InetSocketAddress(ip, port);
             DatagramSocket client = new DatagramSocket();
-            String message = "I am UPDClientB 192.168.1.114";
+            String message = "register I am UPDClientB 192.168.1.114";
             byte[] sendbuf = message.getBytes();
             DatagramPacket pack = new DatagramPacket(sendbuf, sendbuf.length, target);
             client.send(pack);
             //接收server的回复内容
-            byte[] buf = new byte[1024];
+            /*byte[] buf = new byte[1024];
             DatagramPacket recpack = new DatagramPacket(buf, buf.length);
             client.receive(recpack);
             //处理server回复的内容，然后向内容中的地址与端口发起请求（打洞）
@@ -26,7 +26,8 @@ public class UDPClientB {
             String host = params[0].substring(5);
             String port = params[1].substring(5);
             System.out.println(host + ":" + port);
-            sendMessage(host, port, client);
+            sendMessage(host, port, client);*/
+            receive(client);
         } catch (Exception e) {
             e.printStackTrace();
         }
