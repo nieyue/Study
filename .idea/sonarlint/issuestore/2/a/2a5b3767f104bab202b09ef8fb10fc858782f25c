@@ -1,11 +1,11 @@
 
 usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(âÈ´Úşÿÿÿÿ
 nsquid:S3973b"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ù•ıì
-osquid:S3008"SRename this field "udp_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆĞÜÿÿÿÿÿ
-psquid:S2293S"YReplace the type specification in this constructor call with the diamond operator ("<>").(û€ÆÏ
-vsquid:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(å¢³Î
-Hsquid:S1068",Remove this unused "udp_size" private field.(ˆĞÜÿÿÿÿÿ
-squid:S2681d"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(ˆâã¼
-?squid:S1148^"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Zsquid:S2259x"CA "NullPointerException" could be thrown; "lists" is nullable here.(Ô¸Ê¢
 isquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Çµí‘
+squid:S2681d"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(ˆâã¼
+Zsquid:S2259x"CA "NullPointerException" could be thrown; "lists" is nullable here.(Ô¸Ê¢
+vsquid:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(å¢³Î
+osquid:S3008"SRename this field "udp_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆĞÜÿÿÿÿÿ
+Hsquid:S1068",Remove this unused "udp_size" private field.(ˆĞÜÿÿÿÿÿ
+?squid:S1148^"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+psquid:S2293S"YReplace the type specification in this constructor call with the diamond operator ("<>").(û€ÆÏ

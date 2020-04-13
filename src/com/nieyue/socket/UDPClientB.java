@@ -4,11 +4,13 @@ import java.net.*;
 import java.util.Date;
 
 public class UDPClientB {
-     
+    //static String ip="43.241.156.188";
+    static String ip="127.0.0.1";
+    static Integer port=2008;
     public static void main(String[] args) {
         try {
             //向server发起请求
-            SocketAddress target = new InetSocketAddress("43.241.156.188", 2008);
+            SocketAddress target = new InetSocketAddress(ip, port);
             DatagramSocket client = new DatagramSocket();
             String message = "I am UPDClientB 192.168.1.114";
             byte[] sendbuf = message.getBytes();
@@ -35,7 +37,8 @@ public class UDPClientB {
         try {
             SocketAddress target = new InetSocketAddress(host, Integer.parseInt(port));
             for (;;) {
-                String message = "I am master 192.168.1.114 count test 打孔中"+new Date().toLocaleString();
+                String message = "123roomId456clientId456打孔中"+new Date().toLocaleString();
+                //String message = "I am master 192.168.1.114 count test 打孔中"+new Date().toLocaleString();
                 byte[] sendbuf = message.getBytes();
                 DatagramPacket pack = new DatagramPacket(sendbuf, sendbuf.length, target);
                 client.send(pack);
@@ -62,7 +65,8 @@ public class UDPClientB {
                 //记得重新收地址与端口，然后在以新地址发送内容到UPDClientA,就这样互发就可以了。
                 int port = recpack.getPort();
                 InetAddress address = recpack.getAddress();
-                String reportMessage = "I am master 192.168.1.114 count test 回复"+new Date().toLocaleString();
+                String reportMessage = "123roomId456clientId456请求内容中"+new Date().toLocaleString();
+                //String reportMessage = "I am master 192.168.1.114 count test 回复"+new Date().toLocaleString();
                  
                 //发送消息
                 sendMessage(reportMessage, port, address, client);
