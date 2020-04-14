@@ -1,0 +1,12 @@
+@startuml
+Server -> Server: 自启动，伺服
+clientA -> Server: 123roomId123clientId register
+Server -> Server: 等待
+
+clientB -> Server: 123roomId456clientId register
+Server -> clientA: 获取到456clientId的host，port，准备打洞
+Server -> clientB: 获取到123clientId的host，port，准备打洞
+clientA -> clientB: 123clientId向456clientId打洞
+clientB -> clientA: 456clientId向123clientId打洞
+clientA <-> clientB: 互动开始
+@enduml

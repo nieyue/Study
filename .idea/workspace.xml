@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e9467a-c76d-4acb-ae9f-d0e9a54c340b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_lib_2_2_3_jdk15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json-lib-2.2.3-jdk15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Study.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Study.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPClientA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPClientA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PClientServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PProxyServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/Stupid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/ipAndPort.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPClientA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPClientB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PClientServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PProxyServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/Stupid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/ipAndPort.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,13 +46,62 @@
     <expand />
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1736980147">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="973" />
+          <entry key="puml" value="289" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="973" />
+          <entry key="PlantUML file" value="289" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="8" />
+          <entry key="puml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="8" />
+          <entry key="PlantUML file" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java">
+        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="94" column="34" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="34" />
+            <state relative-caret-position="348">
+              <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,24 +110,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java">
+        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360">
-              <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+            <state relative-caret-position="220">
+              <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="57" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3778#3779#0" expanded="true" />
+                <element signature="e#3802#3803#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,6 +129,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -91,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/NieyueHandler.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/NieyueURLConnection.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/CustomProtocolFactory.java" />
@@ -124,9 +179,6 @@
         <option value="$PROJECT_DIR$/src/com/nieyue/algorithm/array/Array.kt" />
         <option value="$PROJECT_DIR$/src/com/nieyue/algorithm/array/Array.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/raft/JRaft.java" />
-        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" />
-        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" />
-        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/p2p/Stupid.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/p2p/P2PClientServer.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/p2p/P2PProxyServer.java" />
@@ -139,11 +191,21 @@
         <option value="$PROJECT_DIR$/src/com/nieyue/socket/TestClient.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPClient2.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPClient.java" />
-        <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java" />
+        <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" />
+        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml" />
+        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" />
+        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" />
+        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -166,6 +228,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -177,6 +240,11 @@
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
               <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -190,33 +258,33 @@
               <item name="Study" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="nieyue" type="462c0819:PsiDirectoryNode" />
-              <item name="socket" type="462c0819:PsiDirectoryNode" />
+              <item name="p2p" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586789275106" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586860771433" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json-lib-2.2.3-jdk15.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.nieyue.customprotocol" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\nieyue\ide\Study\src\com\nieyue\classloader" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\nieyue\ide\Study\lib" />
       <recent name="E:\nieyue\ide\Study\src\com\nieyue\socket" />
       <recent name="E:\nieyue\ide\Study\src\com\nieyue\business" />
       <recent name="E:\nieyue\ide\Study" />
@@ -224,8 +292,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.nieyue.socket" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\nieyue\ide\Study\src\com\nieyue\classloader" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.nieyue.customprotocol" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -240,39 +308,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UDPServer">
-    <configuration name="UDPClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nieyue.socket.UDPClient" />
-      <module name="Study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nieyue.socket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UDPClient2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nieyue.socket.UDPClient2" />
-      <module name="Study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nieyue.socket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.UDPClientB">
     <configuration name="UDPClientA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nieyue.socket.UDPClientA" />
+      <option name="MAIN_CLASS_NAME" value="com.nieyue.p2p.UDPClientA" />
       <module name="Study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nieyue.socket.*" />
+          <option name="PATTERN" value="com.nieyue.p2p.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -281,11 +323,11 @@
       </method>
     </configuration>
     <configuration name="UDPClientB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nieyue.socket.UDPClientB" />
+      <option name="MAIN_CLASS_NAME" value="com.nieyue.p2p.UDPClientB" />
       <module name="Study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nieyue.socket.*" />
+          <option name="PATTERN" value="com.nieyue.p2p.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -294,11 +336,11 @@
       </method>
     </configuration>
     <configuration name="UDPServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nieyue.socket.UDPServer" />
+      <option name="MAIN_CLASS_NAME" value="com.nieyue.p2p.UDPServer" />
       <module name="Study" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nieyue.socket.*" />
+          <option name="PATTERN" value="com.nieyue.p2p.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -308,18 +350,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.UDPServer" />
-      <item itemvalue="Application.UDPClient" />
-      <item itemvalue="Application.UDPClient2" />
       <item itemvalue="Application.UDPClientA" />
       <item itemvalue="Application.UDPClientB" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UDPClientA" />
         <item itemvalue="Application.UDPClientB" />
+        <item itemvalue="Application.UDPClientA" />
         <item itemvalue="Application.UDPServer" />
-        <item itemvalue="Application.UDPClient" />
-        <item itemvalue="Application.UDPClient2" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +431,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144964000" />
+    <option name="totallyTimeSpent" value="155713000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -405,10 +443,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="1" width="1932" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49856734" visible="true" weight="0.22688173" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49856734" visible="true" weight="0.15396996" />
       <window_info id="Structure" order="1" sideWeight="0.50143266" side_tool="true" weight="0.14967811" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -418,7 +456,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22530521" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.36444443" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3618202" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32963374" />
@@ -426,7 +464,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.17980023" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32777777" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32741398" />
       <window_info anchor="bottom" id="SonarLint" order="12" weight="0.3298611" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -434,8 +472,8 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.08851931" />
-      <window_info anchor="right" id="PlantUML" order="7" />
+      <window_info anchor="right" id="Database" order="6" weight="0.08851931" />
+      <window_info anchor="right" id="PlantUML" order="7" weight="0.3299356" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" />
       <window_info anchor="right" id="SciView" order="10" />
@@ -450,15 +488,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="2018 8 8 15" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/rpc/RpcProxyServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" />
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/rpc/RpcClient.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -485,9 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -502,9 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -660,9 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="71" column="25" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#31148#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -680,16 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/customprotocol/NieyueProtocolServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -702,10 +712,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="240">
             <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-            <folding>
-              <marker date="1535256428571" expanded="true" signature="79:89" ph=" { " />
-              <marker date="1535256428571" expanded="true" signature="114:120" ph=" }" />
-            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -770,30 +776,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+        <state relative-caret-position="399">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        <state relative-caret-position="-1216">
+          <caret line="822" column="11" selection-start-line="822" selection-start-column="11" selection-end-line="822" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="541" selection-start-line="541" selection-end-line="541" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="94" column="34" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="34" />
+        <state relative-caret-position="220">
+          <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="57" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3778#3779#0" expanded="true" />
+            <element signature="e#3802#3803#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -857,7 +896,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -876,7 +914,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>netty-all-4.1.36.Final</last-edited>
+          <last-edited>json-lib-2.2.3-jdk15</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,4 +1,4 @@
-package com.nieyue.socket;
+package com.nieyue.p2p;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -31,17 +31,15 @@ public class UDPServer {
                 port = packet.getPort();
                 address = packet.getAddress();
                 //{"roomId":roomId}
-                if(receiveMessage.indexOf(idname1)<=-1){
-                    if(receiveMessage.indexOf("register")>-1){
-                        //注册
-                        DatagramPacket sendPacket = new DatagramPacket("".getBytes(), "".getBytes().length, address, port);
-                        server.send(sendPacket);
-                    }
-                    continue;
+                if(receiveMessage.indexOf("register")>-1){
+                    //注册
+                    DatagramPacket sendPacket = new DatagramPacket("1".getBytes(), "1".getBytes().length, address, port);
+                    server.send(sendPacket);
                 }
+
                 Long roomId=Long.valueOf(receiveMessage.substring(0, receiveMessage.indexOf(idname1)));
                 Long clientId=Long.valueOf(receiveMessage.substring(receiveMessage.indexOf(idname1)+idname1.length(),receiveMessage.indexOf(idname2)));
-                msg=receiveMessage.substring(receiveMessage.indexOf(idname2));
+                msg=receiveMessage.substring(receiveMessage.indexOf(idname2)+idname2.length());
                 if(roomId!=null){
 
                     Map<Long ,Map<String,Object>> roommap=new HashMap<>();
@@ -64,17 +62,18 @@ public class UDPServer {
                         //sendB(sendMessageA, portB, addressB, server);
 
                         Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator = roommap.entrySet().iterator();
-                        Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator2 = roommap.entrySet().iterator();
                         while (roomiterator.hasNext()){
                             Map.Entry<Long, Map<String, Object>> next = roomiterator.next();
                             Long cid =  next.getKey();
                             Map<String, Object> cmap = next.getValue();
                             InetAddress address1 =InetAddress.getByName(cmap.get("host").toString());
                             Integer port1 = Integer.valueOf(cmap.get("port").toString());
+
+                            Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator2 = roommap.entrySet().iterator();
                             while (roomiterator2.hasNext()){
                                 Long cid2 = roomiterator2.next().getKey();
                                 if(!cid.equals(cid2)){
-                                    send(map.toString(), port1, address1, server);
+                                    send(cmap.toString(), port1, address1, server);
                                 }
                             }
                         }
@@ -109,7 +108,5 @@ public class UDPServer {
 
         System.out.println(roomId);
         System.out.println(clientId);*/
-
-
     }
 }
