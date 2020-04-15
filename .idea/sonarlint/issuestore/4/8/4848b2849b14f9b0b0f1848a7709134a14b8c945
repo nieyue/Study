@@ -1,11 +1,0 @@
-
-Fsquid:S1148>"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÃÍ‚Ä–.
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ8åàÅ–.
-Fsquid:S11483"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åàÅ–.
-[
-squid:S106<"9Replace this use of System.out or System.err by a logger.(‰³Ê¿øÿÿÿÿ8ÃÍ‚Ä–.
-Esquid:S1068"'Remove this unused "map" private field.(ÂÖ±Û8ôİåÅ–.
-T
-squid:S106G"9Replace this use of System.out or System.err by a logger.(‰³Ê¿øÿÿÿÿ
-?squid:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

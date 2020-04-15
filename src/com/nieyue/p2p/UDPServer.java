@@ -1,19 +1,38 @@
 package com.nieyue.p2p;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.*;
 
 public class UDPServer {
-    private static Map<Long, Map<Long,Map<String,Object>>> map =new ConcurrentHashMap<>();
-    private static String idname1="roomId";
-    private static String idname2="clientId";
+
+    private static JSONArray roomJsonArray =new JSONArray();
+    private static String ROOMNAME="roomId";
+    private static String CLIENTLISTNAME="clientList";
+    private static String CLIENTNAME="clientId";
+    private static String MSGNAME="msg";
+    private static String STATUSNAME="status";
     static int port=2008;
+    //jsonArray 获取jsonObject
+    public static JSONObject getJSONObject(JSONArray jsonArray,String key,Long value){
+        ListIterator listiter = jsonArray.listIterator();
+        JSONObject json=null;
+        while (listiter.hasNext()){
+            JSONObject tjson = (JSONObject) listiter.next();
+            if(tjson.getLong(key)==value){
+                json=tjson;
+                break;
+            }
+        }
+        return json;
+    }
+
+
     public static void init(){
         try {
             DatagramSocket server = new DatagramSocket(port);
@@ -28,52 +47,109 @@ public class UDPServer {
 
                 String receiveMessage = new String(packet.getData(), 0, packet.getLength());
                 System.out.println(receiveMessage);
+                JSONObject receiveMessageObject=JSONObject.fromObject(receiveMessage);
+
                 port = packet.getPort();
                 address = packet.getAddress();
-                //{"roomId":roomId}
-                if(receiveMessage.indexOf("register")>-1){
-                    //注册
-                    DatagramPacket sendPacket = new DatagramPacket("1".getBytes(), "1".getBytes().length, address, port);
-                    server.send(sendPacket);
-                }
 
-                Long roomId=Long.valueOf(receiveMessage.substring(0, receiveMessage.indexOf(idname1)));
-                Long clientId=Long.valueOf(receiveMessage.substring(receiveMessage.indexOf(idname1)+idname1.length(),receiveMessage.indexOf(idname2)));
-                msg=receiveMessage.substring(receiveMessage.indexOf(idname2)+idname2.length());
+                System.out.println("address:"+address+"port:"+port);
+                Long roomId=receiveMessageObject.getLong(ROOMNAME);
+                Long clientId=receiveMessageObject.getLong(CLIENTNAME);
+                msg=receiveMessageObject.getString(MSGNAME);
                 if(roomId!=null){
 
-                    Map<Long ,Map<String,Object>> roommap=new HashMap<>();
-                    Map<String ,Object> clientmap=new HashMap<>();
-                    if(map.containsKey(roomId)){
-                        roommap=map.get(roomId);
-                    }
-                    if(roommap.containsKey(clientId)){
-                        clientmap=roommap.get(clientId);
-                    }
-                    clientmap.put("host",address.getHostAddress());
-                    clientmap.put("port",port);
-                    clientmap.put("msg",msg);
+                    /**
+                     * [
+                     *  {
+                     *  "roomId":1,
+                     *  "status":1,
+                     *  "clientList":[]
+                     *  },
+                     *  {
+                     *  "roomId":123,
+                     *  "status":1,
+                     *  "clientList":[
+                     *      {
+                     *          "clientId":123,
+                     *           "host":"127.0.0.1",
+                     *           "port":15566,
+                     *           "msg":"123123",
+                     *      },
+                     *  ]}
+                     * ]
+                     *
+                     *
+                     */
 
-                    roommap.put(clientId,clientmap);
-                    map.put(roomId,roommap);
+                    JSONObject roomJsonObject=new JSONObject();
+                    JSONObject tempRoomJsonObject = getJSONObject(roomJsonArray, ROOMNAME, roomId);
+                    if(tempRoomJsonObject!=null&&!"".equals(tempRoomJsonObject)){
+                        roomJsonObject=tempRoomJsonObject;
+                    }
+                    JSONArray clientJsonArray=new JSONArray();
+                    JSONArray tempClientJsonArray = null;
+                    try{
+                        tempClientJsonArray = roomJsonObject.getJSONArray(CLIENTLISTNAME);
+                    }catch (JSONException e){
+
+                    }
+                    
+                    if(tempClientJsonArray!=null&&!"".equals(tempClientJsonArray)){
+                        clientJsonArray=tempClientJsonArray;
+                    }
+
+                    JSONObject clientJsonObject=new JSONObject();
+                    JSONObject tempClientJsonObject = getJSONObject(clientJsonArray,CLIENTNAME,clientId);
+                    if(tempClientJsonObject!=null&&!"".equals(tempClientJsonObject)){
+                        clientJsonObject=tempClientJsonObject;
+                    }
+                    clientJsonObject.put("host",address.getHostAddress());
+                    clientJsonObject.put("port",port);
+                    clientJsonObject.put("msg",msg);
+
+
+                    if(tempClientJsonObject==null){
+                        clientJsonObject.put(CLIENTNAME,clientId);
+                        clientJsonArray.add(clientJsonObject);
+                    }
+
+                   // if(tempClientJsonArray==null){
+                        roomJsonObject.put(CLIENTLISTNAME,clientJsonArray);
+                    //}
+                    if(tempRoomJsonObject==null){
+                        roomJsonObject.put(ROOMNAME,roomId);
+                        roomJsonArray.add(roomJsonObject);
+                    }
+                    int status = receiveMessageObject.getInt(STATUSNAME);
+                    //1注册，2注册成功,3准备打孔，4打孔中,5发消息
+                    if(status==1){
+                        JSONObject registerjson=new JSONObject();
+                        registerjson.put(STATUSNAME,2);
+                        byte[] registerbytes = registerjson.toString().getBytes();
+                        //注册
+                        DatagramPacket sendPacket = new DatagramPacket(registerbytes, registerbytes.length, address, port);
+                        server.send(sendPacket);
+                    }
                     //两个都接收到后分别A、B址地交换互发
-                    if (roommap.size()>=2) {
+                    if (clientJsonArray.size()>=2) {
                        // sendA(sendMessageB, portA, addressA, server);
                         //sendB(sendMessageA, portB, addressB, server);
 
-                        Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator = roommap.entrySet().iterator();
-                        while (roomiterator.hasNext()){
-                            Map.Entry<Long, Map<String, Object>> next = roomiterator.next();
-                            Long cid =  next.getKey();
-                            Map<String, Object> cmap = next.getValue();
-                            InetAddress address1 =InetAddress.getByName(cmap.get("host").toString());
-                            Integer port1 = Integer.valueOf(cmap.get("port").toString());
+                        ListIterator clientiterator = clientJsonArray.listIterator();
+                        while (clientiterator.hasNext()){
+                            JSONObject next =(JSONObject) clientiterator.next();
+                            Long cid =  next.getLong(CLIENTNAME);
+                            String teamphost=  next.getString("host");
+                            int port1=  next.getInt("port");
+                            InetAddress address1 =InetAddress.getByName(teamphost);
 
-                            Iterator<Map.Entry<Long, Map<String, Object>>> roomiterator2 = roommap.entrySet().iterator();
-                            while (roomiterator2.hasNext()){
-                                Long cid2 = roomiterator2.next().getKey();
+                            ListIterator clientiterator2  = clientJsonArray.listIterator();
+                            while (clientiterator2.hasNext()){
+                                JSONObject next2 =(JSONObject) clientiterator2.next();
+                                Long cid2 =  next2.getLong(CLIENTNAME);
                                 if(!cid.equals(cid2)){
-                                    send(cmap.toString(), port1, address1, server);
+                                    next2.put(STATUSNAME,3);//准备打孔
+                                    send(next2.toString(), port1, address1, server);
                                 }
                             }
                         }

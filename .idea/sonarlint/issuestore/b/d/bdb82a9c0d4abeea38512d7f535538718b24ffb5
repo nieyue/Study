@@ -1,12 +1,0 @@
-
-T
-squid:S106B"9Replace this use of System.out or System.err by a logger.(‰³Ê¿øÿÿÿÿ
-?squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-?squid:S1148D"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-asquid:UnusedPrivateMethod"0Remove this unused private "sendMessage" method.(¯éÌşúÿÿÿÿ8ÎÄÈÅ–.
-Fsquid:S1148$"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8æù™Å–.
-?squid:S11488"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-T
-squid:S1060"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ
-jsquid:CallToDeprecatedMethod"6Remove this use of "toLocaleString"; it is deprecated.(•öŸ®ıÿÿÿÿ8æù™Å–.
-esquid:CallToDeprecatedMethod3"6Remove this use of "toLocaleString"; it is deprecated.(á¢¤8İÅÛÄ–.

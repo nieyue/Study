@@ -1,13 +1,0 @@
-
-?squid:S1148."#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-jsquid:CallToDeprecatedMethodA"6Remove this use of "toLocaleString"; it is deprecated.(Þ‘Ð¿ùÿÿÿÿ8ØÍÚÄ–.
-?squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-?squid:S1148S"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-T
-squid:S106Q"9Replace this use of System.out or System.err by a logger.(‘¤Ì˜ÿÿÿÿÿ
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÌÙ¶Î
-?squid:S1148G"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-T
-squid:S106<"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ
-jsquid:CallToDeprecatedMethod&"6Remove this use of "toLocaleString"; it is deprecated.(•öŸ®ýÿÿÿÿ8’ãÙÄ–.

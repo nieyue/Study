@@ -1,0 +1,12 @@
+
+nsquid:CommentedOutCodeLine="<This block of commented-out lines of code should be removed.(ªÈ „úÿÿÿÿ8ë™üÀ—.
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(ðÿ÷8ë™üÀ—.
+Fsquid:S1148a"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ë™üÀ—.
+isquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(õÁøŽ8ë™üÀ—.
+Zsquid:UselessImportCheck	"*Remove this unused import 'java.util.Set'.(ö²„¤þÿÿÿÿ8×«ÁÀ—.
+Fsquid:S1148V"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ë™üÀ—.
+nsquid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(°çÕ†ûÿÿÿÿ8ë™üÀ—.
+[
+squid:S106_"9Replace this use of System.out or System.err by a logger.(‰³Ê¿øÿÿÿÿ8ë™üÀ—.
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ8ë™üÀ—.

@@ -2,29 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e9467a-c76d-4acb-ae9f-d0e9a54c340b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_lib_2_2_3_jdk15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/json-lib-2.2.3-jdk15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-beanutils-1.8.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-collections-3.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-lang-2.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ezmorph-1.0.6.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Study.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Study.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ant_1_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/asm_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cglib_3_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_lib_2_2_3_jdk15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/netty_all_4_1_36_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/2779e80d98b6e2a54deeb3ed2460359316bed6e8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a5b3767f104bab202b09ef8fb10fc858782f25c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/8/4848b2849b14f9b0b0f1848a7709134a14b8c945" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/9/9999da7e22c481d52588244222b2a9ac172d2b31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/5/b56f603dca31ef9eca0ffb48f82748147df526eb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd8944a53f3136730dde10e1ae288bd961810ff3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bdb82a9c0d4abeea38512d7f535538718b24ffb5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bdd0264b29622a32bf815831d0434afe0c59b4ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/7/c7bbc145fe3e8ad616c7dd6961ec4c73e5fb3ac1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PClientServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PProxyServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/P2PServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/Stupid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/ipAndPort.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPClientA.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPClientB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/socket/UDPServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PClientServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PProxyServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/P2PServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/Stupid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/ipAndPort.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nieyue/socket/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/UDPClientA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/UDPClientA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/UDPClientB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/UDPClientB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/UDPServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Study/com/nieyue/p2p/UDPServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,26 +57,42 @@
     <session id="-1736980147">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="973" />
+          <entry key="java" value="3210" />
           <entry key="puml" value="289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="973" />
+          <entry key="JAVA" value="3210" />
           <entry key="PlantUML file" value="289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="8" />
+          <entry key="class" value="12" />
+          <entry key="classpath" value="1" />
+          <entry key="java" value="24" />
+          <entry key="md" value="1" />
+          <entry key="project" value="1" />
           <entry key="puml" value="1" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="8" />
+          <entry key="CLASS" value="12" />
+          <entry key="Eclipse" value="2" />
+          <entry key="JAVA" value="24" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="PlantUML file" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -79,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="40" />
+            <state relative-caret-position="-22">
+              <caret line="131" column="21" lean-forward="true" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,35 +112,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml">
+        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="307">
+              <caret line="58" column="38" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="58" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="57" selection-end-column="67" />
+            <state relative-caret-position="351">
+              <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3778#3779#0" expanded="true" />
-                <element signature="e#3802#3803#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,7 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/NieyueURLConnection.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/CustomProtocolFactory.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/customprotocol/SystemUtils.java" />
@@ -196,8 +207,9 @@
         <option value="$PROJECT_DIR$/src/com/nieyue/socket/UDPClientA.java" />
         <option value="$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml" />
         <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java" />
-        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" />
+        <option value="$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java" />
       </list>
     </option>
   </component>
@@ -228,19 +240,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
               <item name="Study" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
@@ -270,8 +277,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586860771433" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json-lib-2.2.3-jdk15.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586950346615" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../natcross2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -280,8 +287,8 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\nieyue\ide\Study\src\com\nieyue\classloader" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.nieyue.customprotocol" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\nieyue\ide\Study\lib" />
@@ -292,8 +299,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.nieyue.socket" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.nieyue.customprotocol" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\nieyue\ide\Study\src\com\nieyue\classloader" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -308,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UDPClientB">
+  <component name="RunManager" selected="Application.UDPClientA">
     <configuration name="UDPClientA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.nieyue.p2p.UDPClientA" />
       <module name="Study" />
@@ -405,6 +412,7 @@
       <workItem from="1586570560985" duration="775000" />
       <workItem from="1586573238912" duration="13270000" />
       <workItem from="1586757346461" duration="9621000" />
+      <workItem from="1586913099422" duration="23502000" />
     </task>
     <task id="LOCAL-00001" summary="2018 8 8">
       <created>1533700836245</created>
@@ -431,7 +439,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155713000" />
+    <option name="totallyTimeSpent" value="180134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,8 +454,8 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49856734" visible="true" weight="0.15396996" />
-      <window_info id="Structure" order="1" sideWeight="0.50143266" side_tool="true" weight="0.14967811" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49669966" visible="true" weight="0.15611587" />
+      <window_info id="Structure" order="1" sideWeight="0.5033003" side_tool="true" visible="true" weight="0.15611587" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -455,8 +463,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22530521" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3618202" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3773585" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32741398" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32963374" />
@@ -482,69 +490,19 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2018 8 8" />
     <MESSAGE value="2018 8 8 15" />
     <option name="LAST_COMMIT_MESSAGE" value="2018 8 8 15" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/rpc/RpcClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/InetAddressImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/P2PClientServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/P2PServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/P2PClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4004">
-          <caret line="186" column="25" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/P2PProxyServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/Stupid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/ipAndPort.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/P2PClient.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/P2PProxyServer.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/Stupid.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/ipAndPort.properties" />
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/rpc/HelloService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -637,38 +595,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DatagramSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DatagramSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="94" column="34" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/UDPClient.java" />
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/socket/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DatagramPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
-          <folding>
-            <element signature="e#2362#2363#0" expanded="true" />
-            <element signature="e#2399#2400#0" expanded="true" />
-            <element signature="e#9957#9958#0" expanded="true" />
-            <element signature="e#10026#10027#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -686,20 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/AbstractMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="142" column="19" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="295" column="9" selection-start-line="295" selection-start-column="9" selection-end-line="295" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/customprotocol/NieyueProtocolServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -707,34 +624,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clusters-polBooks.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clusters-karate2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/clusters-karate.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clusters-Dolphins.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clusters-Football.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/copra/karate.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -755,13 +646,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Study.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DualStackPlainDatagramSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="284" column="30" selection-start-line="284" selection-start-column="30" selection-end-line="284" selection-end-column="30" />
-        </state>
-      </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -793,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -807,10 +684,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/AbstractMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="174" column="13" selection-start-line="174" selection-start-column="13" selection-end-line="174" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="543" column="19" selection-start-line="543" selection-start-column="14" selection-end-line="543" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json-lib-2.2.3-jdk15.jar!/net/sf/json/JSONArray.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DualStackPlainDatagramSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="284" column="30" selection-start-line="284" selection-start-column="30" selection-end-line="284" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json-lib-2.2.3-jdk15.jar!/net/sf/json/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="1598" selection-start-line="1598" selection-end-line="1598" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/p2p.puml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clusters-Dolphins.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clusters-Football.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clusters-karate2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clusters-polBooks.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DatagramSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DatagramSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="692" column="25" selection-start-line="692" selection-start-column="25" selection-end-line="692" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DatagramPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="310" column="29" selection-start-line="310" selection-start-column="29" selection-end-line="310" selection-end-column="29" />
+          <folding>
+            <element signature="e#2362#2363#0" expanded="true" />
+            <element signature="e#2399#2400#0" expanded="true" />
+            <element signature="e#5232#5233#0" expanded="true" />
+            <element signature="e#5277#5278#0" expanded="true" />
+            <element signature="e#9957#9958#0" expanded="true" />
+            <element signature="e#10026#10027#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="-22">
+          <caret line="131" column="21" lean-forward="true" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="469">
+            <caret line="32" selection-start-line="32" selection-end-line="32" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="58" column="38" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="58" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -819,20 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="57" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3778#3779#0" expanded="true" />
-            <element signature="e#3802#3803#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nieyue/p2p/UDPClientA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+        <state relative-caret-position="351">
+          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -896,6 +881,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -914,7 +900,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>json-lib-2.2.3-jdk15</last-edited>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
