@@ -113,3 +113,10 @@ R
 "src/com/nieyue/p2p/UDPClientB.java,2\4\24b85d5fba5f69ed8fd290a5189853ef5b95e54b
 R
 "src/com/nieyue/p2p/UDPClientA.java,4\b\4b622a12289707ff12675f3be4292a3fb7b0f308
+:
+
+.classpath,3\5\354079a72b91a4280407c16a36f47d1986fd85a5
+8
+.project,f\8\f8b41ce76d7b80d2b47e91b5f92c15f00eccf187
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d

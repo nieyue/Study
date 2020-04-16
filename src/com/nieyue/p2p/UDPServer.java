@@ -52,7 +52,7 @@ public class UDPServer {
                 port = packet.getPort();
                 address = packet.getAddress();
 
-                System.out.println("address:"+address+"port:"+port);
+
                 Long roomId=receiveMessageObject.getLong(ROOMNAME);
                 Long clientId=receiveMessageObject.getLong(CLIENTNAME);
                 msg=receiveMessageObject.getString(MSGNAME);
@@ -107,7 +107,6 @@ public class UDPServer {
                     clientJsonObject.put("port",port);
                     clientJsonObject.put("msg",msg);
 
-
                     if(tempClientJsonObject==null){
                         clientJsonObject.put(CLIENTNAME,clientId);
                         clientJsonArray.add(clientJsonObject);
@@ -139,17 +138,29 @@ public class UDPServer {
                         while (clientiterator.hasNext()){
                             JSONObject next =(JSONObject) clientiterator.next();
                             Long cid =  next.getLong(CLIENTNAME);
-                            String teamphost=  next.getString("host");
-                            int port1=  next.getInt("port");
-                            InetAddress address1 =InetAddress.getByName(teamphost);
+                            String teampHost=  next.getString("host");
+                            int tempPort=  next.getInt("port");
+                            InetAddress inetAddress =InetAddress.getByName(teampHost);
 
                             ListIterator clientiterator2  = clientJsonArray.listIterator();
                             while (clientiterator2.hasNext()){
                                 JSONObject next2 =(JSONObject) clientiterator2.next();
                                 Long cid2 =  next2.getLong(CLIENTNAME);
+                                String teampHost2=  next2.getString("host");
+                                int tempPort2=  next2.getInt("port");
+
+
                                 if(!cid.equals(cid2)){
-                                    next2.put(STATUSNAME,3);//准备打孔
-                                    send(next2.toString(), port1, address1, server);
+                                    JSONObject newmsgjson=new JSONObject();
+                                    newmsgjson.put("sourceHost",teampHost);
+                                    newmsgjson.put("sourcePort",tempPort);
+                                    newmsgjson.put("sourceClientId",next.get("clientId"));
+                                    newmsgjson.put("targetHost",teampHost2);
+                                    newmsgjson.put("targetPort",tempPort2);
+                                    newmsgjson.put("targetClientId",next2.get("clientId"));
+                                    newmsgjson.put(STATUSNAME,3);//准备打孔
+                                    newmsgjson.put("msg",next.get("msg"));
+                                    send(newmsgjson.toString(), tempPort, inetAddress, server);
                                 }
                             }
                         }

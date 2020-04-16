@@ -1,15 +1,19 @@
 
-\squid:UnusedPrivateMethod\"0Remove this unused private "sendMessage" method.(Áì’ø8¡´Ö´—.
-?squid:S1148d"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-Fsquid:S1148#"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8é°ðµ—.
-nsquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(ú¡ÊÆÿÿÿÿÿ8˜¢ÑÁ—.
-isquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(Á‰•ó8ïüÑÁ—.
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö†ÖËúÿÿÿÿ8é°ðµ—.
-9squid:S36264"Remove this redundant jump.(ÉŠ©ƒ8ÿ›ÏÁ—.
-T
-squid:S106b"9Replace this use of System.out or System.err by a logger.(‘¤Ì˜ÿÿÿÿÿ
-hsquid:CommentedOutCodeLine	"<This block of commented-out lines of code should be removed.(òþÈ(8¢´Ö´—.
-?squid:S1148G"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-Fsquid:S1148X"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8˜¢ÑÁ—.
-isquid:CommentedOutCodeLine="<This block of commented-out lines of code should be removed.( –ìÎ8ÿ›ÏÁ—.
-jsquid:CallToDeprecatedMethodO"6Remove this use of "toLocaleString"; it is deprecated.(‰Îè’üÿÿÿÿ8˜¢ÑÁ—.
+xsquid:S3008"URename this field "STATUSNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÀÏ·øÿÿÿÿ8¤›å—.
+vsquid:S3008"SRename this field "ROOMNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õË„Ìüÿÿÿÿ8¤›å—.
+nsquid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(îöúìûÿÿÿÿ8ª·×ç—.
+jsquid:CallToDeprecatedMethodG"6Remove this use of "toLocaleString"; it is deprecated.(ý…âþüÿÿÿÿ8µü°ç—.
+9squid:S36265"Remove this redundant jump.(ÉŠ©ƒ8×Ú²ç—.
+[
+squid:S1061"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ8á­ç—.
+|squid:S3008"YRename this field "CLIENTLISTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú…‚øÿÿÿÿ8¤›å—.
+psquid:S3008"RRename this field "MSGNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÈÝŒ8¤›å—.
+xsquid:S3008"URename this field "CLIENTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²âÆÙýÿÿÿÿ8¤›å—.
+V
+squid:S1062"9Replace this use of System.out or System.err by a logger.(ûøÃž8á­ç—.
+Usquid:S1068"2Remove this unused "CLIENTLISTNAME" private field.(Ú…‚øÿÿÿÿ8¤›å—.
+Fsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8“Àüæ—.
+Fsquid:S1148""#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8é°ðµ—.
+Fsquid:S1148M"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8“Àüæ—.
+isquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(Á‰•ó8Ð½òì—.
