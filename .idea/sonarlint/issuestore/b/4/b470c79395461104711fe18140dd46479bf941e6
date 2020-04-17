@@ -1,24 +1,23 @@
 
-[
-squid:S1067"9Replace this use of System.out or System.err by a logger.(„‚Ãìşÿÿÿÿ8ÎÊàä—.
-|squid:S3008"YRename this field "CLIENTLISTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú…‚øÿÿÿÿ8¦áâŞ—.
 xsquid:S3008"URename this field "CLIENTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²âÆÙıÿÿÿÿ8µİ—.
-psquid:S3776$"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(ğÿ÷8¹êÉæ—.
-ysquid:S2159V"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÃÙ•·øÿÿÿÿ8Ö‚ÈŞ—.
-vsquid:S3008"SRename this field "ROOMNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õË„Ìüÿÿÿÿ8µİ—.
-xsquid:S3008"URename this field "STATUSNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÀÏ·øÿÿÿÿ8Ö–‘İ—.
-Xsquid:S1141["5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8İå—.
-jsquid:CommentedOutCodeLineµ"<This block of commented-out lines of code should be removed.(õÁø8¹êÉæ—.
-ysquid:S2159a"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÄÙ­êşÿÿÿÿ8»áå—.
+lsquid:S1192"IDefine a constant instead of duplicating this literal "clientId" 3 times.(²âÆÙıÿÿÿÿ8¶¿”–˜.
 ysquid:S2159g"VRemove this call to "equals"; comparisons between unrelated types always return false.(Óñü¶ıÿÿÿÿ8»áå—.
-osquid:CommentedOutCodeLine‡"<This block of commented-out lines of code should be removed.(ªÈ „úÿÿÿÿ8»áå—.
-isquid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(¨ˆÎÓ8½›Îå—.
-nsquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8½›Îå—.
-\
-squid:S106«"9Replace this use of System.out or System.err by a logger.(‰³Ê¿øÿÿÿÿ8¹êÉæ—.
-Gsquid:S1148¢"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹êÉæ—.
-Gsquid:S1148­"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹êÉæ—.
 [
 squid:S1061"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ8ë™üÀ—.
-Msquid:S00108]")Either remove or fill this block of code.(÷¿­¹ÿÿÿÿÿ8İå—.
+Gsquid:S1148­"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8É£‘–˜.
 psquid:S3008"RRename this field "MSGNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÈİŒ8µİ—.
+jsquid:CommentedOutCodeLineÀ"<This block of commented-out lines of code should be removed.(õÁø8É£‘–˜.
+ysquid:S2159a"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÄÙ­êşÿÿÿÿ8»áå—.
+nsquid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8½›Îå—.
+Xsquid:S1141["5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8İå—.
+psquid:S3776$"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(ğÿ÷8É£‘–˜.
+vsquid:S3008"SRename this field "ROOMNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õË„Ìüÿÿÿÿ8µİ—.
+ysquid:S2159V"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÃÙ•·øÿÿÿÿ8Ö‚ÈŞ—.
+Msquid:S00108]")Either remove or fill this block of code.(÷¿­¹ÿÿÿÿÿ8İå—.
+|squid:S3008"YRename this field "CLIENTLISTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú…‚øÿÿÿÿ8¦áâŞ—.
+osquid:CommentedOutCodeLine†"<This block of commented-out lines of code should be removed.(ªÈ „úÿÿÿÿ8»áå—.
+\
+squid:S106¶"9Replace this use of System.out or System.err by a logger.(‰³Ê¿øÿÿÿÿ8É£‘–˜.
+xsquid:S3008"URename this field "STATUSNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÀÏ·øÿÿÿÿ8Ö–‘İ—.
+isquid:CommentedOutCodeLines"<This block of commented-out lines of code should be removed.(¨ˆÎÓ8½›Îå—.
+Gsquid:S1148¸"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8É£‘–˜.

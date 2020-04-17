@@ -1,9 +1,35 @@
 
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ö’¿
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(Øñ‰úúÿÿÿÿ
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(÷éç¼ıÿÿÿÿ
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(ªø“·
+V
+squid:S106@"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8‰ñ³…˜.
+V
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8‰ñ³…˜.
+V
+squid:S1063"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8‡Î¨…˜.
+isquid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(¿“¨¶8»•…˜.
+V
+squid:S106$"9Replace this use of System.out or System.err by a logger.(Ä˜‰é8ÿÏš…˜.
+Fsquid:S16048"(Make this anonymous inner class a lambda(ÉãÃ®8Ù¼…˜.
+V
+squid:S106("9Replace this use of System.out or System.err by a logger.(Ä˜‰é8·ç›…˜.
+V
+squid:S106/"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8‡Î¨…˜.
+V
+squid:S106&"9Replace this use of System.out or System.err by a logger.(Ä˜‰é8ÿÏš…˜.
+V
+squid:S1061"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8‡Î¨…˜.
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(’ˆÏ”8»•…˜.
+V
+squid:S106<"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8÷À©…˜.
+Tsquid:S1854"6Remove this useless assignment to local variable "ii".(ı¥‹Æ8ªù…˜.
+V
+squid:S1065"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8‰ñ³…˜.
+Esquid:S1481"'Remove this unused "ii" local variable.(ı¥‹Æ8ªù…˜.
+nsquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(åÏ°ğıÿÿÿÿ8ªù…˜.
+V
+squid:S106>"9Replace this use of System.out or System.err by a logger.(ôÀÔÑ8÷À©…˜.
+Fsquid:S1604+"(Make this anonymous inner class a lambda(ÉãÃ®8Á÷²…˜.
+V
+squid:S106*"9Replace this use of System.out or System.err by a logger.(Ä˜‰é8Á¡œ…˜.
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8÷Ğğ…˜.
+^squid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8÷Ğğ…˜.

@@ -56,14 +56,14 @@ public class UDPClientA {
                     jsonobject.put(STATUSNAME,4);//打洞中
                     jsonobject.put(MSGNAME,"打洞中");
                     sendMessage(jsonobject, client);
-
-                   // receive(client);
                 }else if(jsonobject.get(STATUSNAME).equals(4)){//打洞中
+                    jsonobject=exchange(jsonobject);
                     jsonobject.put(STATUSNAME,5);//发消息
                     jsonobject.put(MSGNAME,"开始发消息了");
                     sendMessage(jsonobject, client);
                 }else if(jsonobject.get(STATUSNAME).equals(5)){//发消息
                     Thread.sleep(1000);
+                    jsonobject=exchange(jsonobject);
                     jsonobject.put(STATUSNAME,5);//发消息
                     jsonobject.put(MSGNAME,"发消息中"+new Date().toLocaleString());
                     sendMessage(jsonobject, client);
@@ -104,6 +104,28 @@ public class UDPClientA {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 交换id,地址和端口
+     * @return
+     */
+    private static JSONObject exchange(JSONObject jsonObject){
+        String  sourceHost = jsonObject.getString("sourceHost");
+        int  sourcePort = jsonObject.getInt("sourcePort");
+        Long  sourceClientId = jsonObject.getLong("sourceClientId");
+        String  targetHost = jsonObject.getString("targetHost");
+        int  targetPort = jsonObject.getInt("targetPort");
+        Long  targetClientId = jsonObject.getLong("targetClientId");
+
+        jsonObject.put("sourceHost",targetHost);
+        jsonObject.put("sourcePort",targetPort);
+        jsonObject.put("sourceClientId",targetClientId);
+        jsonObject.put("targetHost",sourceHost);
+        jsonObject.put("targetPort",sourcePort);
+        jsonObject.put("targetClientId",sourceClientId);
+        return jsonObject;
+
     }
     public static void main(String[] args) {
         linkServer(123l,123l);

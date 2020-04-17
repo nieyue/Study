@@ -1,19 +1,25 @@
 
+Fsquid:S1148q"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“Àüæ—.
 xsquid:S3008"URename this field "STATUSNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÀÏ·øÿÿÿÿ8¤›å—.
-vsquid:S3008"SRename this field "ROOMNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õË„Ìüÿÿÿÿ8¤›å—.
-nsquid:CommentedOutCodeLine
-"<This block of commented-out lines of code should be removed.(îöúìûÿÿÿÿ8ª·×ç—.
-jsquid:CallToDeprecatedMethodG"6Remove this use of "toLocaleString"; it is deprecated.(ı…âşüÿÿÿÿ8µü°ç—.
-9squid:S36265"Remove this redundant jump.(ÉŠ©ƒ8×Ú²ç—.
-[
-squid:S1061"9Replace this use of System.out or System.err by a logger.(µÍªîüÿÿÿÿ8á­ç—.
-|squid:S3008"YRename this field "CLIENTLISTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú…‚øÿÿÿÿ8¤›å—.
 psquid:S3008"RRename this field "MSGNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÈİŒ8¤›å—.
-xsquid:S3008"URename this field "CLIENTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²âÆÙıÿÿÿÿ8¤›å—.
+9squid:S36266"Remove this redundant jump.(ÉŠ©ƒ8ºé¶–˜.
 V
-squid:S1062"9Replace this use of System.out or System.err by a logger.(ûøÃ8á­ç—.
+squid:S106m"9Replace this use of System.out or System.err by a logger.(Š£ø³8¶²·–˜.
+V
+squid:S106V"9Replace this use of System.out or System.err by a logger.(†³ÌĞ8…÷½†˜.
+jsquid:CallToDeprecatedMethodL"6Remove this use of "toLocaleString"; it is deprecated.(¶˜ıæøÿÿÿÿ8ºé¶–˜.
+xsquid:S3008"URename this field "CLIENTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²âÆÙıÿÿÿÿ8¤›å—.
+Usquid:S2589Y"7Remove this expression which always evaluates to "true"(ÄòĞ´8…÷½†˜.
+V
+squid:S106S"9Replace this use of System.out or System.err by a logger.(½èğÀ8…÷½†˜.
 Usquid:S1068"2Remove this unused "CLIENTLISTNAME" private field.(Ú…‚øÿÿÿÿ8¤›å—.
-Fsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“Àüæ—.
-Fsquid:S1148""#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8é°ğµ—.
-Fsquid:S1148M"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“Àüæ—.
-isquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(Á‰•ó8Ğ½òì—.
+[
+squid:S1064"9Replace this use of System.out or System.err by a logger.(Û‡úéüÿÿÿÿ8²Æ•’˜.
+Fsquid:S1148$"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8é°ğµ—.
+usquid:S3776*"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ê´±¡úÿÿÿÿ8…÷½†˜.
+nsquid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(îöúìûÿÿÿÿ8„ÜÑ–˜.
+Fsquid:S1148`"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8“Àüæ—.
+vsquid:S3008"SRename this field "ROOMNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õË„Ìüÿÿÿÿ8¤›å—.
+|squid:S3008"YRename this field "CLIENTLISTNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú…‚øÿÿÿÿ8¤›å—.
+hsquid:CommentedOutCodeLine;"<This block of commented-out lines of code should be removed.(¸ù—u8Ñä–˜.

@@ -138,26 +138,28 @@ public class UDPServer {
                         while (clientiterator.hasNext()){
                             JSONObject next =(JSONObject) clientiterator.next();
                             Long cid =  next.getLong(CLIENTNAME);
-                            String teampHost=  next.getString("host");
+                            String tempHost=  next.getString("host");
                             int tempPort=  next.getInt("port");
-                            InetAddress inetAddress =InetAddress.getByName(teampHost);
+                            Long tempClientId=  next.getLong("clientId");
+                            InetAddress inetAddress =InetAddress.getByName(tempHost);
 
                             ListIterator clientiterator2  = clientJsonArray.listIterator();
                             while (clientiterator2.hasNext()){
                                 JSONObject next2 =(JSONObject) clientiterator2.next();
                                 Long cid2 =  next2.getLong(CLIENTNAME);
-                                String teampHost2=  next2.getString("host");
+                                String tempHost2=  next2.getString("host");
                                 int tempPort2=  next2.getInt("port");
+                                Long tempClientId2=  next2.getLong("clientId");
 
-
-                                if(!cid.equals(cid2)){
+                                //两个不相等（自己不能给自己发），最少有一个是请求者，
+                                if(!cid.equals(cid2)&&(tempClientId.equals(clientId)||tempClientId2.equals(clientId))){
                                     JSONObject newmsgjson=new JSONObject();
-                                    newmsgjson.put("sourceHost",teampHost);
+                                    newmsgjson.put("sourceHost",tempHost);
                                     newmsgjson.put("sourcePort",tempPort);
-                                    newmsgjson.put("sourceClientId",next.get("clientId"));
-                                    newmsgjson.put("targetHost",teampHost2);
+                                    newmsgjson.put("sourceClientId",tempClientId);
+                                    newmsgjson.put("targetHost",tempHost2);
                                     newmsgjson.put("targetPort",tempPort2);
-                                    newmsgjson.put("targetClientId",next2.get("clientId"));
+                                    newmsgjson.put("targetClientId",tempClientId2);
                                     newmsgjson.put(STATUSNAME,3);//准备打孔
                                     newmsgjson.put("msg",next.get("msg"));
                                     send(newmsgjson.toString(), tempPort, inetAddress, server);
