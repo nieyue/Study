@@ -1,5 +1,7 @@
 package com.nieyue.p2p;
 
+import com.nieyue.netty.HttpServer;
+
 import java.net.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,6 +42,7 @@ public class Stun {
             //client.send(pack);
             // 接收请求的回复,可能不是server回复的，有可能来自UPDClientB的请求内
             receive(client);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

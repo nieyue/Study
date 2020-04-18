@@ -1,0 +1,12 @@
+
+Dsquid:S1172"&Remove these unused method parameters.(´ÿ˜¨8ç­Ê±˜.
+Hsquid:S00108:")Either remove or fill this block of code.(íåÿÉ8ß®å±˜.
+Gsquid:S1481%")Remove this unused "pack" local variable.(ðîÇš8¬š±º˜.
+Vsquid:S1854%"8Remove this useless assignment to local variable "pack".(ðîÇš8¬š±º˜.
+Fsquid:S1148="#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8åæã±˜.
+nsquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(¼ÆôÍúÿÿÿÿ8³Á¾±˜.
+Fsquid:S1148,"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8³Á¾±˜.
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¯Ž¹8‰ë±˜.
+V
+squid:S1067"9Replace this use of System.out or System.err by a logger.(ŒµÒ¤8åæã±˜.
+Tsquid:S3655"7Call "Optional#isPresent()" before accessing the value.(¯ÑÏ8æ¨²º˜.
